@@ -59,7 +59,7 @@ class AuthController extends Controller
      */
     public function getTown()
     {
-        $region_id=$_POST['region_id']; // Отримуємо id регіону, всі міста якого потрібно повернути
+        $region_id=$_POST['region_id'];
 
         $towns = new Region();
         $towns = $towns::find($region_id)->towns;
@@ -122,10 +122,6 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        RoleUser::create([
-            'user_id' => isset(User::all()->last()->id) ? User::all()->last()->id +1 : 1,
-            'role_id' => $data['role']
-        ]);
         return User::create([
             'name' => $data['name'],
             'last_name' => $data['last_name'],
@@ -134,5 +130,19 @@ class AuthController extends Controller
             'school_id' => $data['school']
         ]);
 
+
+    }
+
+    /**
+     * Adding role for user in special table
+     * @param array $data
+     * @return RoleUser
+     */
+    public function createRoleUser(array $data)
+    {
+        RoleUser::create([
+            'user_id' => User::all()->last()->id,
+            'role_id' => $data['role']
+        ]);
     }
 }

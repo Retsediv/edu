@@ -160,6 +160,10 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
 
+        Pingpong\Widget\WidgetServiceProvider::class,
+
+        SmartCrowd\Rbac\RbacServiceProvider::class
+
 
     ),
 
@@ -178,7 +182,7 @@ return [
 
         'App'       => Illuminate\Support\Facades\App::class,
         'Artisan'   => Illuminate\Support\Facades\Artisan::class,
-        'auth'      => Illuminate\Support\Facades\Auth::class,
+        'Auth'      => Illuminate\Support\Facades\Auth::class,
         'Blade'     => Illuminate\Support\Facades\Blade::class,
         'Bus'       => Illuminate\Support\Facades\Bus::class,
         'Cache'     => Illuminate\Support\Facades\Cache::class,
@@ -210,6 +214,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'Widget'    => Pingpong\Widget\WidgetFacade::class,
+        'Rbac'      => SmartCrowd\Rbac\Facades\Rbac::class
 
     ],
 

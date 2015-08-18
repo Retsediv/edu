@@ -2,9 +2,13 @@
 
 Route::group(['middleware' => ['auth', 'role:teacher,student']], function(){
 
-    Route::get('/', function(){
-        return view('index');
-    });
+    Route::get('/',
+        ['as'   =>  'home',
+         'uses' =>  'HomeController@index']);
+
+    Route::get('/events',
+        ['as'   =>  'events',
+         'uses' =>  'HomeController@events']);
 
 });
 
@@ -52,9 +56,4 @@ Route::group(['namespace' => 'Auth'], function(){
     Route::post('auth/get/town', 'AuthController@getTown');
     Route::post('auth/get/school', 'AuthController@getSchool');
 
-});
-
-Route::get('admin', function(){
-    return view('student.index');
-    return view('student.index');
 });

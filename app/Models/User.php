@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use SmartCrowd\Rbac\Traits\AllowedTrait;
+use SmartCrowd\Rbac\Contracts\Assignable;
+use Illuminate\Support\Facades\Auth;
 
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract, Assignable
 {
-    use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword, AllowedTrait;
 
     /**
      * The database table used by the model.
@@ -37,5 +40,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');
+    }
+
+    /**
+     * Return array of role
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function getAssignments()
+    {
+        return [$this->roles()->first()->role_slug];
     }
 }

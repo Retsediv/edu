@@ -19,6 +19,12 @@
         <input name="password" type="password" required="required" />
     </div>
 
+    <div class="field-wrap field-check">
+        <input type="checkbox" name="remember" id="remember">
+        <label for="remember">Запам'ятати мене?</label>
+    </div>
+
+
     <p class="forgot"><a href="{{ route('password') }}">Забули пароль?</a></p>
 
     <button class="button button-block"/>Увійти</button>

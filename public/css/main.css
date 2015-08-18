@@ -1,0 +1,25 @@
+.event-date {
+    font-weight: bold;
+}
+
+
+.clearfix:before, .clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+clear: both;
+}
+
+.clear {
+    clear: both;
+}
+
+.input-group[class*="col-"] {
+    padding: 0 15px;
+}
+
+.content-wrapper {
+    main-height: 820px !important;
+}

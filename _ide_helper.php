@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.1.9 (LTS) on 2015-08-11.
+ * Generated for Laravel 5.1.10 (LTS) on 2015-08-17.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -6965,6 +6965,22 @@ namespace {
          * @return mixed 
          * @static 
          */
+        public static function onQueue($queue, $view, $data, $callback){
+            return \Illuminate\Mail\Mailer::onQueue($queue, $view, $data, $callback);
+        }
+        
+        /**
+         * Queue a new e-mail message for sending on the given queue.
+         * 
+         * This method didn't match rest of framework's "onQueue" phrasing. Added "onQueue".
+         *
+         * @param string $queue
+         * @param string|array $view
+         * @param array $data
+         * @param \Closure|string $callback
+         * @return mixed 
+         * @static 
+         */
         public static function queueOn($queue, $view, $data, $callback){
             return \Illuminate\Mail\Mailer::queueOn($queue, $view, $data, $callback);
         }
@@ -12303,6 +12319,240 @@ namespace {
          */
         public static function hasMacro($name){
             return \Collective\Html\HtmlBuilder::hasMacro($name);
+        }
+        
+    }
+
+
+    class Widget extends \Pingpong\Widget\WidgetFacade{
+        
+        /**
+         * Register new widget.
+         *
+         * @param string $name
+         * @param string|callable $callback
+         * @static 
+         */
+        public static function register($name, $callback){
+            return \Pingpong\Widget\Widget::register($name, $callback);
+        }
+        
+        /**
+         * Register widget using a specified handler class.
+         *
+         * @param string $subscriber
+         * @static 
+         */
+        public static function subscribe($subscriber){
+            return \Pingpong\Widget\Widget::subscribe($subscriber);
+        }
+        
+        /**
+         * Determine whether a widget there or not.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function has($name){
+            return \Pingpong\Widget\Widget::has($name);
+        }
+        
+        /**
+         * Calling a specific widget.
+         *
+         * @param string $name
+         * @param array $parameters
+         * @return mixed 
+         * @static 
+         */
+        public static function call($name, $parameters = array()){
+            return \Pingpong\Widget\Widget::call($name, $parameters);
+        }
+        
+        /**
+         * Calling a specific widget.
+         *
+         * @param string $name
+         * @param array $parameters
+         * @return mixed 
+         * @static 
+         */
+        public static function get($name, $parameters = array()){
+            return \Pingpong\Widget\Widget::get($name, $parameters);
+        }
+        
+        /**
+         * Group some widgets.
+         *
+         * @param string $name
+         * @param array $widgets
+         * @static 
+         */
+        public static function group($name, $widgets){
+            return \Pingpong\Widget\Widget::group($name, $widgets);
+        }
+        
+        /**
+         * Group some widgets, merging if previously set.
+         *
+         * @param string $name
+         * @param array $newWidgets
+         * @static 
+         */
+        public static function mergeGroup($name, $newWidgets){
+            return \Pingpong\Widget\Widget::mergeGroup($name, $newWidgets);
+        }
+        
+        /**
+         * Determine whether a group of widgets there or not.
+         *
+         * @param string $name
+         * @return bool 
+         * @static 
+         */
+        public static function hasGroup($name){
+            return \Pingpong\Widget\Widget::hasGroup($name);
+        }
+        
+        /**
+         * Call a specific group of widgets.
+         *
+         * @param string $name
+         * @param array $parameters
+         * @return string 
+         * @static 
+         */
+        public static function callGroup($name, $parameters = array()){
+            return \Pingpong\Widget\Widget::callGroup($name, $parameters);
+        }
+        
+        /**
+         * Get a group of widgets.
+         *
+         * @param string $name
+         * @return array|null 
+         * @static 
+         */
+        public static function getGroup($name){
+            return \Pingpong\Widget\Widget::getGroup($name);
+        }
+        
+        /**
+         * Get a collection of a group of widgets.
+         *
+         * @param string $name
+         * @return \Illuminate\Support\Collection|null 
+         * @static 
+         */
+        public static function collectGroup($name){
+            return \Pingpong\Widget\Widget::collectGroup($name);
+        }
+        
+    }
+
+
+    class Rbac extends \SmartCrowd\Rbac\Facades\Rbac{
+        
+        /**
+         * 
+         *
+         * @param \SmartCrowd\Rbac\Assignable|null $user
+         * @param string $itemName
+         * @param array $params
+         * @return boolean 
+         * @static 
+         */
+        public static function checkAccess($user, $itemName, $params = array()){
+            return \SmartCrowd\Rbac\Manager::checkAccess($user, $itemName, $params);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $itemName
+         * @return bool 
+         * @static 
+         */
+        public static function has($itemName){
+            return \SmartCrowd\Rbac\Manager::has($itemName);
+        }
+        
+        /**
+         * 
+         *
+         * @param array|string $actions
+         * @param array|string $permissions
+         * @static 
+         */
+        public static function action($actions, $permissions){
+            return \SmartCrowd\Rbac\Manager::action($actions, $permissions);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $controllerName
+         * @param string $prefix
+         * @static 
+         */
+        public static function controller($controllerName, $prefix){
+            return \SmartCrowd\Rbac\Manager::controller($controllerName, $prefix);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $name
+         * @param array $children
+         * @param \Closure $rule
+         * @static 
+         */
+        public static function permission($name, $children = array(), $rule = null){
+            return \SmartCrowd\Rbac\Manager::permission($name, $children, $rule);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $name
+         * @param array $children
+         * @static 
+         */
+        public static function role($name, $children){
+            return \SmartCrowd\Rbac\Manager::role($name, $children);
+        }
+        
+        /**
+         * 
+         *
+         * @param string $itemName
+         * @param string $controller
+         * @param string $foreignKey
+         * @static 
+         */
+        public static function resource($itemName, $controller = null, $foreignKey = null){
+            return \SmartCrowd\Rbac\Manager::resource($itemName, $controller, $foreignKey);
+        }
+        
+        /**
+         * 
+         *
+         * @return \SmartCrowd\Rbac\ItemsRepository 
+         * @static 
+         */
+        public static function getRepository(){
+            return \SmartCrowd\Rbac\Manager::getRepository();
+        }
+        
+        /**
+         * 
+         *
+         * @var ItemsRepository $repository
+         * @static 
+         */
+        public static function setRepository($repository){
+            return \SmartCrowd\Rbac\Manager::setRepository($repository);
         }
         
     }

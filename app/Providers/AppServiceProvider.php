@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        require base_path() . '/resources/macros/activeMacro.php';
     }
 
     /**
