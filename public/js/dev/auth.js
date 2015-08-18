@@ -4,7 +4,7 @@
 $(document).ready(function(){
     // Form script
     $('div.field-wrap').each(function(){
-        if ( $(this).find('input').val() !== '' ){
+        if ($(this).find('input').val() !== ''){
             $(this).find('label').addClass('active');
         }
     });
@@ -12,6 +12,7 @@ $(document).ready(function(){
     if ($('label').val() != '') {
         $(this).addClass('active highlight');
     }
+
     $('.form').find('input, textarea').on('keyup blur focus select', function (e) {
 
         var $this = $(this),
@@ -52,8 +53,6 @@ $(document).ready(function(){
 
     /* End script for reg. form  */
 
-
-
     /* Ajax requests */
     $.ajaxSetup({
         headers: { 'X-CSRF-Token' : $('meta[name=csrf-token]').attr('content')}
@@ -89,6 +88,5 @@ $(document).ready(function(){
         }
         $(where).html(list);
     }
-
 });
 

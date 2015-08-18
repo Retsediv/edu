@@ -13,10 +13,8 @@
             <div class="form">
 
                 <ul class="tab-group">
-                    @if(Request::getPathInfo() === '/auth/login')
-                        @endif
-                    <li class="tab @if(Request::getPathInfo() === '/auth/login') active @endif"><a href="{{ route('login') }}">Увійти</a></li>
-                    <li class="tab @if(Request::getPathInfo() === '/auth/register') active @endif"><a href=" {{ route('register') }}">Зареєструватись</a></li>
+                    <li class="tab {{ Html::is_active('auth/login') }}"><a href="{{ route('login') }}">Увійти</a></li>
+                    <li class="tab {{ Html::is_active('auth/register') }}"><a href=" {{ route('register') }}">Зареєструватись</a></li>
                 </ul>
 
                 <div class="tab-content">

@@ -1,6 +1,6 @@
 <?php
 
-Route::group(['middleware' => ['auth', 'role:teacher,student']], function(){
+Route::group(['middleware' => ['auth', 'role:teacher,student,director']], function(){
 
     Route::get('/',
         ['as'   =>  'home',
@@ -9,6 +9,10 @@ Route::group(['middleware' => ['auth', 'role:teacher,student']], function(){
     Route::get('/events',
         ['as'   =>  'events',
          'uses' =>  'HomeController@events']);
+
+    Route::post('/events',
+        ['as'   =>  'events',
+         'uses' =>  'HomeController@createEvent']);
 
 });
 

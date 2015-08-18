@@ -2,7 +2,7 @@
 
 Rbac::permission('events.create');
 
-Rbac::role('teacher', [
+Rbac::role('student', [
     'events.create'
 ]);
 

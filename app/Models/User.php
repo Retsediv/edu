@@ -37,6 +37,16 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      */
     protected $hidden = ['password', 'remember_token'];
 
+
+    public function school()
+    {
+        return  $this->belongsTo('App\Models\School');
+    }
+
+    /**
+     * Return a collection of user roles
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany('App\Models\Role');
