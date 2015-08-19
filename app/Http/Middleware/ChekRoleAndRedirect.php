@@ -9,8 +9,9 @@ class ChekRoleAndRedirect
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param  \Illuminate\Http\Request $request
+     * @param  \Closure $next
+     * @param $roles
      * @return mixed
      */
 
@@ -25,4 +26,5 @@ class ChekRoleAndRedirect
 
         return 'You have not a permission to see this page';
     }
+
 }

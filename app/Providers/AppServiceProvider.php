@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+
 use Illuminate\Support\ServiceProvider;
+use View;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,6 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        view()->composer('*', function($view) {
+            View::share('user', Auth::user());
+        });
+
         require base_path() . '/resources/macros/activeMacro.php';
     }
 

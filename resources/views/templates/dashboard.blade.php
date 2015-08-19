@@ -33,7 +33,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     @header()
-    @sidebar()
+    @include('templates.sidebar')
     <div class="content-wrapper">
         @yield('main')
     </div>
