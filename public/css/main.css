@@ -23,3 +23,7 @@ clear: both;
 .content-wrapper {
     main-height: 820px !important;
 }
+
+.todo-list > li .tools #done {
+    color: green;
+}

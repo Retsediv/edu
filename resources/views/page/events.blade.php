@@ -11,24 +11,21 @@
 
 <!-- Main content -->
 <section class="content col-md-12">
+        @foreach($events as $event)
+            <div class="col-md-6 col-sm-12 col-xs-4">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ $event->name }}</h3>
 
+                        <div class="pull-right event-date">{{ $event->data_range }}</div>
+                    </div>
 
-    @foreach($events as $event)
-        <div class="col-md-6 col-sm-12 col-xs-4">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">{{ $event->name }}</h3>
-
-                    <div class="pull-right event-date">{{ $event->data_range }}</div>
-                </div>
-
-                <div class="box-body">
-                    {{ $event->description }}
+                    <div class="box-body">
+                        {{ $event->description }}
+                    </div>
                 </div>
             </div>
-        </div>
-    @endforeach
-
+        @endforeach
     <div class="clear"></div>
 
 

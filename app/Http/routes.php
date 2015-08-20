@@ -8,11 +8,27 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     Route::get('/events',
         ['as'   =>  'events',
-         'uses' =>  'HomeController@events']);
+         'uses' =>  'EventsController@events']);
 
     Route::post('/events',
         ['as'   =>  'events',
-         'uses' =>  'HomeController@createEvent']);
+         'uses' =>  'EventsController@createEvent']);
+
+    Route::get('/tasks',
+        ['as'   =>  'tasks',
+         'uses' =>  'TasksController@tasksList']);
+
+    Route::post('/tasks',
+        ['as'   =>  'task.create',
+         'uses' =>  'TasksController@createTask']);
+
+    Route::post('/task/done',
+        ['as'   =>  'task.done',
+         'uses' =>  'TasksController@taskDone']);
+
+    Route::post('/task/remove',
+        ['as'   =>  'task.remove',
+         'uses' =>  'TasksController@taskRemove']);
 
 });
 

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>AdminLTE 2 | Dashboard</title>
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
+    <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
+
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ URL::asset('/css/app.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
