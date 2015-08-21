@@ -30,6 +30,14 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
         ['as'   =>  'task.remove',
          'uses' =>  'TasksController@taskRemove']);
 
+    Route::get('/task/edit/{id}',
+        ['as'   =>  'task.edit',
+         'uses' =>  'TasksController@taskEdit']);
+
+    Route::patch('/task/edit/{id}',
+        ['as'   =>  'task.editPatch',
+         'uses' =>  'TasksController@taskEditPatch']);
+
 });
 
 Route::group(['namespace' => 'Auth'], function(){

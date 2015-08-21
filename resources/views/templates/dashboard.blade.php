@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Edu project</title>
     <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
 
     <!-- Tell the browser to be responsive to screen width -->

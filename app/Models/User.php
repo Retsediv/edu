@@ -60,4 +60,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     {
         return [$this->roles()->first()->role_slug];
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');
+    }
 }

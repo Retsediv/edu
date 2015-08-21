@@ -38,6 +38,7 @@
                             <!-- General tools such as edit or delete-->
                             <div class="tools">
                                 <i class="fa fa-check" id="done"></i>
+                                <a href="{{ route('task.edit', [$task->id]) }}"><i class="fa fa-edit" id="edit"></i></a>
                                 <i class="fa fa-remove" id="remove"></i>
                             </div>
                         </li>
@@ -57,27 +58,37 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        {!! Form::open(['method' => 'post', 'route' => 'task.create', 'class' => 'form-horizontal']) !!}
+        @if(isset($editask))
+            {!! Form::model($editask, ['method' => 'patch', 'route' => ['task.edit', $editask->id], 'class' => 'form-horizontal']) !!}
+        @else
+            {!! Form::open(['method' => 'post', 'route' => 'task.create', 'class' => 'form-horizontal']) !!}
+        @endif
         <div class="box-body">
+
             <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Назва</label>
+                {!! Form::label('name', 'Назва', ['class' => 'col-sm-2 control-label']) !!}
 
                 <div class="col-sm-10">
-                    <input name="name" class="form-control" id="inputName" placeholder="Що саме ви хочете зробити?" type="text" required="required">
+                    {!! Form::text('name', Input::old('name'), ['placeholder' => 'Що саме ви хочете зробити?', 'required', 'class' => 'form-control']) !!}
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="inputName" class="col-sm-2 control-label">Сроки</label>
-
+                {!! Form::label('deadline', 'Сроки', ['class' => 'col-sm-2 control-label']) !!}
                 <div class="col-sm-10">
-                    <input name="deadline" class="form-control" id="inputDeadLine" placeholder="За скільки часу ви маєте це виконати?" type="text" required="required">
+                    {!! Form::text('deadline', Input::old('deadline'), ['placeholder' => 'За скільки часу ви маєте це виконати?', 'required', 'class' => 'form-control']) !!}
                 </div>
             </div>
+
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            <button type="submit" class="btn btn-info pull-right">Добавити</button>
+            @if(isset($editask))
+                <button type="submit" class="btn btn-info pull-right">Оновити</button>
+            @else
+                <button type="submit" class="btn btn-info pull-right">Добавити</button>
+            @endif
+
         </div>
         <!-- /.box-footer -->
 

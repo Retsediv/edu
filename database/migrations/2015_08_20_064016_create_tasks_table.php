@@ -18,6 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('name');
             $table->string('deadline');
             $table->string('progress');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }

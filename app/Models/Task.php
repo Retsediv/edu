@@ -8,5 +8,10 @@ class Task extends Model
 {
     protected $table = 'tasks';
 
-    protected $fillable = ['name', 'deadline'];
+    protected $fillable = ['name', 'deadline', 'user_id'];
+
+    public function getUserByTask()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 }
