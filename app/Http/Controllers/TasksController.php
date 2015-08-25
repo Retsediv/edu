@@ -88,7 +88,7 @@ class TasksController extends Controller
     public function checkId($id, $request)
     {
         if(!($request->user()->tasks->contains($id))){
-            exit(redirect('/', 301));
+            abort(404);
         }
     }
 }

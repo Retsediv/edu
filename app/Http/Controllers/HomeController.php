@@ -18,9 +18,9 @@ class HomeController extends Controller
     {
         $tasks = $request->user()->tasks;
 
-        $school_is = $request->user()->school->id;
+        $school_id = $request->user()->school->id;
         $events = new Event();
-        $events = $events->getEventsBySchool($school_is);
+        $events = $events->getEventsBySchool($school_id);
         return view('page.index', ['tasks' => $tasks, 'events' => $events]);
     }
 
