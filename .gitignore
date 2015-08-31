@@ -2,6 +2,6 @@
 /node_modules
 Homestead.yaml
 .env
-/resources/assets/plugins
 .phpstorm.meta.php
 _ide*
+.idea
