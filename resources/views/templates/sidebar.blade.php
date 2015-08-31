@@ -36,6 +36,7 @@
             <li class="{{ Html::is_active('/') }}"><a href="{{ URL::route('home') }}"><i class="fa fa-link"></i> <span>Головна</span></a></li>
             <li class="{{ Html::is_active('events') }}"><a href="{{ URL::route('events') }}"><i class="fa fa-link"></i> <span>Події</span></a></li>
             <li class="{{ Html::is_active('tasks') }}"><a href="{{ URL::route('tasks') }}"><i class="fa fa-link"></i> <span>Список справ</span></a></li>
+            <li class="{{ Html::is_active('timetable') }}"><a href="{{ URL::route('timetable') }}"><i class="fa fa-link"></i> <span>Розклад уроків</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i
                             class="fa fa-angle-left pull-right"></i></a>

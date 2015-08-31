@@ -9,8 +9,10 @@ class Region extends Model
 {
     protected $fillable = ['name'];
 
-    public function towns()
+    public $timestamps = false;
+
+    public function areas()
     {
-        return $this->hasMany('App\Models\Town');
+        return $this->hasMany('App\Models\Area');
     }
 }

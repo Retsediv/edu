@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Town extends Model
 {
-    public function townRegion()
+    protected $fillable = ['name', 'area_id'];
+
+    public $timestamps = false;
+
+    public function townArea()
     {
-        return $this->belongsTo('App\Models\Region');
+        return $this->belongsTo('App\Models\Area');
     }
 
     public function schools()

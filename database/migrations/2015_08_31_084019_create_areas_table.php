@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTownsTable extends Migration
+class CreateAreasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,11 @@ class CreateTownsTable extends Migration
      */
     public function up()
     {
-        Schema::create('towns', function(Blueprint $table){
-            $table->increments('id')->unsigned();
+        Schema::create('areas', function(Blueprint $table){
+            $table->increments('id');
             $table->string('name');
-            $table->integer('area_id');
+            $table->integer('region_id');
+
         });
     }
 
@@ -26,6 +27,6 @@ class CreateTownsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('towns');
+        //
     }
 }
