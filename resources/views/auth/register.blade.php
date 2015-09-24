@@ -53,7 +53,14 @@
 
     <div class="field-wrap">
         <span class="field-desc">
-            З якого ви міста?
+            Який район?
+        </span>
+        <select name="area" id="area" type="select" value="{{ old('area') }}" required="required">        </select>
+    </div>
+
+    <div class="field-wrap">
+        <span class="field-desc">
+            З якого ви міста/села?
         </span>
         <select name="town" id="town" type="select" value="{{ old('town') }}" required="required">        </select>
     </div>

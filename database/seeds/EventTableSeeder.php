@@ -1,12 +1,12 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: andrew
- * Date: 24.09.15
- * Time: 19:31
- */
-class EventTableSeeder
-{
+use App\Models\Event;
 
+
+class EventTableSeeder extends Seeder
+{
+    public function run()
+    {
+        Event::create(['name' => 'name', 'description' => '...', 'user_id' => 1, 'school_id' => 1]);
+    }
 }

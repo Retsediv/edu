@@ -1,12 +1,10 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: andrew
- * Date: 24.09.15
- * Time: 19:30
- */
-class RoleUserTableSeeder
-{
+use App\Models\RoleUser;
 
+class RoleUserTableSeeder extends Seeder {
+    public function run()
+    {
+        RoleUser::create(['user_id' => 1, 'role_id' => 1]);
+    }
 }

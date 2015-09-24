@@ -1,12 +1,13 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: andrew
- * Date: 24.09.15
- * Time: 19:32
- */
-class SchoolTableSeeder
-{
+use App\Models\School;
 
+class SchoolTableSeeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('schools')->delete();
+        School::create(['name' => 'Вінницька гімназія', 'town_id' => 2]);
+        School::create(['name' => 'Дережицька СЗШ', 'town_id' => 1]);
+    }
 }

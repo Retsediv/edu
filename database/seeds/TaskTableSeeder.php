@@ -1,12 +1,10 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: andrew
- * Date: 24.09.15
- * Time: 19:31
- */
-class TaskTableSeeder
-{
+use App\Models\Task;
 
+class TaskTableSeeder extends Seeder {
+    public function run()
+    {
+        Task::create(['name' => 'Task example', 'deadline' => date("H:i:s"), 'progress' => false]);
+    }
 }

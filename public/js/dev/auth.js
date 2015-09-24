@@ -60,9 +60,20 @@ $(document).ready(function(){
 
     $('select#region').change(function(){
         $.ajax({
-            url: "get/town",
+            url: "/auth/get/area",
             cache: false,
             data: { region_id: $(this).val() },
+            type: "POST",
+
+            success: function(objects) { insertItems('select#area', objects) }
+        });
+    });
+
+    $('select#area').change(function(){
+        $.ajax({
+            url: "/auth/get/town",
+            cache: false,
+            data: { area_id: $(this).val() },
             type: "POST",
 
             success: function(objects) { insertItems('select#town', objects) }
@@ -71,7 +82,7 @@ $(document).ready(function(){
 
     $('select#town').change(function(){
         $.ajax({
-            url: "get/school",
+            url: "/auth/get/school",
             cache: false,
             data: { town_id: $(this).val() },
             type: "POST",
