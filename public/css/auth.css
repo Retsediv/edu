@@ -215,4 +215,12 @@ textarea {
     text-align: right;
 }
 
+.full-width {
+    width: 100%;
+}
+
+.non-margin {
+    margin: 0;
+}
+
 /* -- END MAIN REGISTRATION/LOGIN FORM -- */

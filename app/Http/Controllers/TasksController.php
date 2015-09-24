@@ -10,6 +10,7 @@ class TasksController extends Controller
 {
 
     /**
+     * @param Request $request
      * @return \Illuminate\View\View
      */
     public function tasksList(Request $request)
@@ -23,7 +24,7 @@ class TasksController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function createTask()
+    public function createTask(Request $request)
     {
         Task::create([
             'name' => $request->name,

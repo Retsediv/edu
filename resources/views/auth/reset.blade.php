@@ -5,6 +5,7 @@
 
         <p>Введіть свій email та новий пароль. Після цього натисність на кнопку і завершіть відновлення доступу до аккаунту. </p>
         {!! Form::open(['route' => 'reset', 'method' => 'post']) !!}
+        <input type="hidden" name="token" value="{{ $token }}">
 
         <div class="field-wrap">
             <label>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Area;
 use App\Models\Region;
 use App\Models\Role;
 use App\Models\RoleUser;
@@ -54,15 +55,29 @@ class AuthController extends Controller
     }
 
     /**
+     * @post region_id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getArea()
+    {
+        $region_id = $_POST['region_id'];
+
+        $region = new Region();
+        $areas = $region::find($region_id)->areas;
+
+        return Response::json($areas);
+    }
+
+    /**
      * @post $region_id
      * @return \Illuminate\Http\JsonResponse
      */
     public function getTown()
     {
-        $region_id=$_POST['region_id'];
+        $area_id = $_POST['area_id'];
 
-        $towns = new Region();
-        $towns = $towns::find($region_id)->towns;
+        $towns = new Area();
+        $towns = $towns::find($area_id)->towns;
 
         return Response::json($towns);
     }
@@ -108,6 +123,7 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'role' => 'required|exists:roles,id',
             'region' => 'required',
+            'area'  => 'required',
             'town' => 'required',
             'school' => 'required',
             'password' => 'required|confirmed|min:6',
