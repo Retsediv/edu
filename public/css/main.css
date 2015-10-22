@@ -2,6 +2,13 @@
     font-weight: bold;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-bold {
+    font-weight: bold;
+}
 
 .clearfix:before, .clearfix:after {
     content: " ";
@@ -24,6 +31,64 @@ clear: both;
     main-height: 820px !important;
 }
 
+.main-footer {
+    margin-top: 50px;
+}
+
 .todo-list > li .tools #done {
     color: green;
 }
+
+.timetable {
+    display: inline-flex;
+}
+
+.box .timetable:nth-child(1), .box .timetable:nth-child(2) {
+    width: 49.5%;
+}
+
+.box .timetable {
+    width: 32.333%;
+}
+
+.timetable .tools {
+    float:  right;
+}
+
+.timetable-edit .timetable-input {
+    border: none;
+}
+
+.fa-remove {
+    color: #ff0000;
+}
+
+.inverted {
+    border-radius: 0 !important;
+}
+
+.todo-list .done a.header {
+    text-decoration: line-through;
+}
+
+i#done {
+    color: green;
+}
+
+i#done, .fa-remove:hover {
+    cursor: pointer;
+}
+
+.fa-plus {
+    color: #006400;
+}
+
+.fa-plus:hover {
+    cursor: pointer;
+}
+
+.page-content section {
+    margin: 15px !important;
+}
+
+

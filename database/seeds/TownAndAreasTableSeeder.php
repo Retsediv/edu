@@ -2,6 +2,8 @@
 
 use App\Models\Area;
 use App\Models\Town;
+use App\Models\Region;
+use Illuminate\Database\Seeder;
 
 class TownAndAreasTableSeeder extends Seeder
 {
