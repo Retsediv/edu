@@ -11,9 +11,6 @@
         <div class="row">
 
             <div class="form">
-
-
-
                 <ul class="tab-group non-margin">
                     <li class="tab {{ Html::is_active('addschool') }}"><a style="width: 100%;" class="full-width" href="{{ route('addschool') }}">Добавити новий навчальний заклад</a></li>
                 </ul>

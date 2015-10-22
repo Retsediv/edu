@@ -40,7 +40,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 
     public function school()
     {
-        return  $this->belongsTo('App\Models\School');
+        return $this->belongsTo('App\Models\School');
+    }
+
+    public function userClass()
+    {
+        return $this->belongsTo('App\Models\Classes', 'class_id');
     }
 
     /**

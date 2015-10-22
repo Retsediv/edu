@@ -44,6 +44,14 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
         ['as'   =>  'timetable',
          'uses' =>  'TimeTableController@timeTableShow']);
 
+    Route::get('/timetable/create',
+        ['as'   =>  'timetable.create',
+         'uses' =>  'TimeTableController@timeTableCreate']);
+
+    Route::post('/timetable/create',
+        ['as'   =>  'timetable.create',
+         'uses' =>  'TimeTableController@timeTableCreatePost']);
+
 });
 
 /* AUTHENTIFICATION */

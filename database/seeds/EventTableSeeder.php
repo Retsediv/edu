@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Event;
-
+use Illuminate\Database\Seeder;
 
 class EventTableSeeder extends Seeder
 {

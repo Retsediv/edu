@@ -1,9 +1,13 @@
-/*
-Tasks list
- */
+
 
 
 $(document).ready(function () {
+
+    /*
+     Tasks list
+     */
+
+
     $(".todo-list li input[type=checkbox]:checked").parent().addClass("done");;
 
     $(".todo-list li input").click(function(){
@@ -14,7 +18,7 @@ $(document).ready(function () {
     /*
     Task done
      */
-    $(".todo-list li i#done").click(function(){
+    $(".todo-list i#done").click(function(){
         $(this).parent().parent().addClass("done");
 
         $.ajaxSetup({
@@ -37,7 +41,7 @@ $(document).ready(function () {
     /*
     Task delete
      */
-    $(".todo-list li i#remove").click(function(){
+    $(".todo-list i#remove").click(function(){
         $(this).parent().parent().remove();
 
         $.ajaxSetup({
@@ -55,4 +59,36 @@ $(document).ready(function () {
             always: function() { $(this).parent().parent().remove(); }
         });
     });
+
+
+    /*
+    Timetable creating and editing...
+     */
+
+
+    /*
+    Form styling
+     */
+    $(".timetable-edit .timetable-input").parent().css("padding", "none");
+
+    /*
+    Removing item of lesson in timetble
+     */
+    $('.timetable').on('click', 'i#remove', function(){
+        $(this).parent().parent().parent().remove();
+    });
+
+    /*
+    Adding item of lesson in timetable
+     */
+    $(".timetable i#add").click(function(){
+        var id = $(this).data("id"),
+            block ='<tr><td>1</td><td style=""><input style="width: 90%; float: left;" class="form-control timetable-input" name="lessons['+ id +'][]" placeholder="..." type="text"><div class="tools"> <i class="fa fa-remove" id="remove"></i></div></td><td style=""><input class="form-control timetable-input" name="classroom[' + id + '][]" placeholder="..." type="text"></td> </tr>';
+
+        $(this).parent().parent().parent().parent().append(block);;
+    });
+
+    /*
+    TODO: Make auto increntmet and auto changing number of lesson
+     */
 });

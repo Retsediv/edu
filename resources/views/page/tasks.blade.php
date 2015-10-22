@@ -1,96 +1,80 @@
-@extends('templates.dashboard')
+@extends('templates.page')
 
-@section('main')
+@section('page_title', 'Список справ')
 
-        <!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-        Ваш список справ
-    </h1>
-</section>
-
-<!-- Main content -->
-<section class="content col-md-12">
-
-        <div class="box box-primary">
-            <div style="cursor: move;" class="box-header ui-sortable-handle">
-                <i class="ion ion-clipboard"></i>
-
-                <h3 class="box-title">Завжди плануйте та записуйте, для того щоб не забути та виконувати все вчасно</h3>
-
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <ul class="todo-list ui-sortable">
-                    @foreach($tasks as $task)
-                        <li class="{{ $task->progress }}">
-                            <!-- drag handle -->
-                          <span class="handle ui-sortable-handle">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <i class="fa fa-ellipsis-v"></i>
-                          </span>
-                            <!-- todo text -->
-                            <input  value="{{ $task->id }}" name="taskDone" type="checkbox" class="hidden">
-
-                            <span class="text">{{ $task->name }}</span>
-                            <!-- Emphasis label -->
-                            <small class="label label-success"><i class="fa fa-clock-o"></i> {{ $task->deadline }} </small>
-                            <!-- General tools such as edit or delete-->
-                            <div class="tools">
-                                <i class="fa fa-check" id="done"></i>
-                                <a href="{{ route('task.edit', [$task->id]) }}"><i class="fa fa-edit" id="edit"></i></a>
-                                <i class="fa fa-remove" id="remove"></i>
-                            </div>
-                        </li>
-                    @endforeach
+@section('page')
 
 
-                </ul>
-            </div>
-            <!-- /.box-body -->
+
+    <div class="ui sixteen wide column">
+
+        <h3 class="box-title">Завжди плануйте та записуйте, для того щоб не забути та виконувати все вчасно</h3>
+
+
+        <!-- /.box-header -->
+        <div class="ui relaxed divided list todo-list segment">
+            @foreach($tasks as $task)
+                <div class="item {{ $task->progress }}">
+                    <input value="{{ $task->id }}" name="taskDone" type="hidden">
+
+                    <div class="content" style="float: left;">
+                        <a class="header">{{ $task->name }}</a>
+
+                        <div class="description">{{ $task->deadline }}</div>
+                    </div>
+                    <div class="tools" style="">
+                        <i class="fa fa-check checkmark icon" id="done"></i>
+                        <a href="{{ route('task.edit', [$task->id]) }}"><i class="fa fa-edit edit icon"
+                                                                           id="edit"></i></a>
+                        <i class="fa fa-remove remove icon" id="remove"></i>
+                    </div>
+                </div><br/>
+            @endforeach
+
         </div>
-    <div class="clear"></div>
+        <!-- /.box-body -->
+    </div>
 
 
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">Бажаєте запланувати щось?</h3>
-        </div>
+
+    <div class="ui sixteen wide column segment">
+
+        <h3 class="box-title">Бажаєте запланувати щось?</h3>
+
         <!-- /.box-header -->
         <!-- form start -->
         @if(isset($editask))
-            {!! Form::model($editask, ['method' => 'patch', 'route' => ['task.edit', $editask->id], 'class' => 'form-horizontal']) !!}
+            {!! Form::model($editask, ['method' => 'patch', 'route' => ['task.edit', $editask->id], 'class' => 'ui form']) !!}
         @else
-            {!! Form::open(['method' => 'post', 'route' => 'task.create', 'class' => 'form-horizontal']) !!}
+            {!! Form::open(['method' => 'post', 'route' => 'task.create', 'class' => 'ui form']) !!}
         @endif
-        <div class="box-body">
+        <div class="ui grid twelve column aligned center">
 
-            <div class="form-group">
-                {!! Form::label('name', 'Назва', ['class' => 'col-sm-2 control-label']) !!}
+            <div class="field ui column wide nine" style="margin: 0;">
+                {!! Form::label('name', 'Назва', ['class' => '']) !!}
 
-                <div class="col-sm-10">
+                <div class="ui">
                     {!! Form::text('name', Input::old('name'), ['placeholder' => 'Що саме ви хочете зробити?', 'required', 'class' => 'form-control']) !!}
                 </div>
             </div>
 
-            <div class="form-group">
-                {!! Form::label('deadline', 'Сроки', ['class' => 'col-sm-2 control-label']) !!}
-                <div class="col-sm-10">
+            <div class="field ui column wide nine">
+                {!! Form::label('deadline', 'Сроки', ['class' => '']) !!}
+                <div class="ui">
                     {!! Form::text('deadline', Input::old('deadline'), ['placeholder' => 'За скільки часу ви маєте це виконати?', 'required', 'class' => 'form-control']) !!}
                 </div>
             </div>
 
         </div>
         <!-- /.box-body -->
-        <div class="box-footer">
-            @if(isset($editask))
-                <button type="submit" class="btn btn-info pull-right">Оновити</button>
-            @else
-                <button type="submit" class="btn btn-info pull-right">Добавити</button>
-            @endif
 
-        </div>
-        <!-- /.box-footer -->
+        @if(isset($editask))
+            <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Оновити</button>
+        @else
+              <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="right arrow icon"></i>Добавити</button>
+        @endif
+
+
 
         @if($errors->has())
             @foreach ($errors->all() as $error)
@@ -102,7 +86,6 @@
 
     </div>
 
-</section>
-<!-- /.content -->
+
 
 @stop

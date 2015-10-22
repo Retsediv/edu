@@ -17,7 +17,8 @@ class EventsController extends Controller
     public function events(Request $request)
     {
         $events = new Event();
-        $events = $events->getEventsBySchool($request->user()->school_id);
+
+        $events = $events->getEventsBySchool($request->user()->userClass->school->id);
         return view('page.events', ['events' => $events]);
     }
 
@@ -32,7 +33,7 @@ class EventsController extends Controller
             'data_range'    =>  $this->getPrettyDate($request->dateRange),
             'description'   =>  $request->description,
             'user_id'       =>  $request->user()->id,
-            'school_id'     =>  $request->user()->school->id
+            'school_id'     =>  $request->user()->userClass->school->id
         ]);
 
         return back();
