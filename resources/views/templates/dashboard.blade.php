@@ -9,11 +9,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ URL::asset('/css/semantic.min.css') }}">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="{{ URL::asset('vendor/popup.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('/css/vendor.css') }}">
 
     <link rel="stylesheet" href="{{ URL::asset('/css/main.css') }}">
 </head>
@@ -37,18 +33,15 @@
 
 
 <!-- REQUIRED JS SCRIPTS -->
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="{{ URL::asset('/js/main.js') }}"></script>
 
-<script src="{{ URL::asset('js/semantic.min.js') }}"></script>
-<script src="{{ URL::asset('vendor/popup.min.js') }}"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
-<!-- MAIN DEV SCRIPT -->
-<script src="{{ URL::asset('js/dev/main.js') }}"></script>
 <script>
     $(document).ready(function () {
 
         tinymce.init({
+            theme: "modern",
+            skin: 'light',
+            language : 'uk',
             selector: "#wswj"
         });
 
