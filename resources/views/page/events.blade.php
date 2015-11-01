@@ -3,84 +3,62 @@
 @section('page_title', 'Найближчі події та свята')
 
 @section('page')
-    <div class="ui grid container">
-    @foreach($events as $event)
-        <div class="ui card" style="margin: 10px 10px 0 0;">
-            <div class="content">
-                <div class="header">{{ $event->name }}</div>
-                <div class="description">
-                    <p> {{ $event->description }}</p>
+    <div class="ui grid container sixteen wide column">
+        @foreach($events as $event)
+            <div class="ui card five wide column" style="margin: 10px 10px 0 0;">
+                <div class="content">
+                    <div class="header">{{ $event->name }}</div>
+                    <div class="description">
+                        <p> {!! $event->description !!}</p>
+                    </div>
+                </div>
+                <div class="extra content">
+                    {{ $event->data_range }}
                 </div>
             </div>
-            <div class="extra content">
-                {{ $event->data_range }}
-            </div>
-        </div>
-    @endforeach
-
-    @foreach($events as $event)
-        <div class="ui card" style="margin: 10px 10px 0 0;">
-            <div class="content">
-                <div class="header">{{ $event->name }}</div>
-                <div class="description">
-                    <p> {{ $event->description }}</p>
-                </div>
-            </div>
-            <div class="extra content">
-                {{ $event->data_range }}
-            </div>
-        </div>
-    @endforeach
+        @endforeach
 
     </div>
 
 
     @allowed('events.create')
-    <div class="ui sixteen column wide container">
-        <div class="box-header with-border">
-            <h3 class="box-title">Добавити нову подію</h3>
-        </div>
+    <div class="ui sixteen wide column segment container">
+
+        <h3 class="box-title">Добавити нову подію</h3>
+
         <!-- /.box-header -->
         <!-- form start -->
-        {!! Form::open(['method' => 'post', 'route' => 'events', 'class' => 'form-horizontal']) !!}
-        <div class="box-body">
-            <div class="form-group">
+        {!! Form::open(['method' => 'post', 'route' => 'events', 'class' => 'ui form']) !!}
+        <div class="ui grid twelve column aligned center">
+
+            <div class="field ui column wide nine" style="margin: 0;">
                 <label for="inputName" class="col-sm-2 control-label">Назва</label>
 
-                <div class="col-sm-10">
-                    <input name="name" class="form-control" id="inputName" placeholder="Як ви назвете подію?"
-                           type="text" required="required">
-                </div>
+                <input name="name" class="form-control" id="inputName" placeholder="Як ви назвете подію?"
+                       type="text" required="required">
             </div>
 
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Дата проведення</label>
+            <div class="field ui column wide nine" style="margin: 0;">
+                <label for="inputName" class="col-sm-2 control-label">Дата проведення</label>
 
-                <!--<div class="input-group col-sm-10">
-                    <div class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <input name="dateRange" class="form-control pull-right active" id="reservation" type="text"
-                           required="required">
-                </div>
-                <!-- /.input group -->
+                <input name="dateRange" class="form-control pull-right active" id="reservation" type="text"
+                       required="required">
+
             </div>
 
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Детальний опис</label>
-
-                <div class="col-sm-10">
-                    <textarea id="wswj" name="description"></textarea>
-                </div>
-                <!-- /.input group -->
+            <div class="field ui column wide nine" style="margin: 0;">
+                <label for="description" class="col-sm-2 control-label">Детальний опис</label>
+                <textarea id="wswj" name="description"></textarea>
             </div>
-
 
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-            <button type="submit" class="btn btn-info pull-right">Добавити</button>
-        </div>
+
+            <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Добавити</button>
+
+        {!! Form::close() !!}
+
+                <!-- /.box-body -->
+
         <!-- /.box-footer -->
 
         @if($errors->has())
@@ -89,7 +67,8 @@
             @endforeach
         @endif
 
-        {!! Form::close() !!}
+
+    </div>
 
     </div>
     @endallowed

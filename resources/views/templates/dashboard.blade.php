@@ -15,8 +15,6 @@
 
     <link rel="stylesheet" href="{{ URL::asset('vendor/popup.min.css') }}">
 
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"/>
-
     <link rel="stylesheet" href="{{ URL::asset('/css/main.css') }}">
 </head>
 
@@ -44,13 +42,16 @@
 <script src="{{ URL::asset('js/semantic.min.js') }}"></script>
 <script src="{{ URL::asset('vendor/popup.min.js') }}"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-
-
+<script src="//tinymce.cachefly.net/4.2/tinymce.min.js"></script>
+<!-- MAIN DEV SCRIPT -->
 <script src="{{ URL::asset('js/dev/main.js') }}"></script>
 <script>
     $(document).ready(function () {
-        $('#reservation').daterangepicker({ locale: { format: 'MM.DD.YYYY' } });
+
+        tinymce.init({
+            selector: "#wswj"
+        });
+
 
         $('#user-popup').popup({
             popup: $('.user-header-popup'),

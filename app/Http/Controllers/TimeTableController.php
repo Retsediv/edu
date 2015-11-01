@@ -34,6 +34,6 @@ class TimeTableController extends Controller
      */
     public function timeTableCreatePost(Request $request)
     {
-        dd($request);
+        dd($request->lessons);
     }
 }

@@ -6,7 +6,7 @@
 
 
 <!-- TO-DO LIST -->
-<section class="ui seven wide column segment">
+<section class="ui seven wide column segment piled">
     <h3 class="ui header">Список справ</h3>
 
     <div class="ui relaxed divided list todo-list">
@@ -42,15 +42,15 @@
             <div class="content">
                 <div class="header">{{ $event->name }}</div>
                 <div class="description">
-                    <p> {{ $event->description }}</p>
+                    <p> {!! $event->description !!}</p>
                 </div>
             </div>
             <div class="extra content">
                 {{ $event->data_range }}
             </div>
-            @endforeach
 
         </div>
+    @endforeach
 
 
 </section>
