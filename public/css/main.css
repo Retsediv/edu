@@ -92,3 +92,9 @@ i#done, .fa-remove:hover {
 }
 
 
+/**/
+
+.ui.inverted.menu {
+    background-color: #37424d;
+}
+

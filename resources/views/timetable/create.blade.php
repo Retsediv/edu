@@ -1,16 +1,8 @@
-@extends('templates.dashboard')
+@extends('templates.page')
 
-@section('main')
+@section('page_title', 'Розклад уроків')
 
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>Розклад уроків</h1>
-</section>
-
-<!-- Main content -->
-<section class="content">
-
-    <!-- Your Page Content Here -->
+@section('page')
     <section class="left-section col-sm-12">
         <!-- TO-DO LIST -->
         <div class="">
@@ -21,19 +13,19 @@
 
                     @for($i = 0; $i<5; $i++)
 
-                    <table class="timetable timetable-edit table table-bordered">
-                        <tr>
+                    <table class="timetable timetable-edit ui table celled">
+                        <thead><tr>
                             <th style="width: 100%; text-align: center;" colspan="3">
                                 Понеділок
                                 <!-- General tools such as edit or delete-->
                                 <div class="tools"><i class="fa fa-plus" id="add" data-id="{{ $i }}"></i></div>
                             </th>
-                        </tr>
-                        <tr>
+                        </tr></thead>
+                        <thead><tr>
                             <th style="width: 5%">№</th>
                             <th style="width: 70%">Урок</th>
                             <th style="width: 25%">Аудиторія</th>
-                        </tr>
+                        </tr></thead>
 
                         @for($j = 1; $j<rand(1,6); $j++)
                         <tr>
@@ -51,9 +43,7 @@
                     @endfor
 
                     <!-- /.box-body -->
-                    <div class="box-footer clearfix no-border">
-                        <button type="submit" id="done" class="btn btn-info pull-right">Змінити</button>
-                    </div>
+                        <button type="submit" class="ui left plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Вперед</button>
                 {!! Form::close() !!}
 
             </div>

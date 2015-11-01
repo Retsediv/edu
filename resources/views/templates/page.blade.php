@@ -2,7 +2,7 @@
 
 @section('main')
 <!-- Content Header (Page header) -->
-<div class="ui segment">
+<div class="ui segment blue">
     <h1>
         @yield('page_title', 'Сторінка...')
     </h1>

@@ -21,13 +21,13 @@
             <a class="item {{ Html::is_active('/') }}" href="{{ URL::route('home') }}">
                 <i class="home icon"></i> Головна
             </a>
-            <a class="item {{ Html::is_active('/tasks') }}" href="{{ URL::route('tasks') }}">
+            <a class="item {{ Html::is_active('tasks') }}" href="{{ URL::route('tasks') }}">
                 <i class="check circle icon"></i> Список справ
             </a>
-            <a class="item {{ Html::is_active('/events') }}" href="{{ URL::route('events') }}">
+            <a class="item {{ Html::is_active('events') }}" href="{{ URL::route('events') }}">
                 <i class="pin icon"></i> Події
             </a>
-            <a class="item {{ Html::is_active('/timetable') }}" href="{{ URL::route('timetable') }}">
+            <a class="item {{ Html::is_active('timetable') }}" href="{{ URL::route('timetable') }}">
                 <i class="table icon"></i> Розклад уроків
             </a>
 

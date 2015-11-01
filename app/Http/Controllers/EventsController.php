@@ -30,7 +30,7 @@ class EventsController extends Controller
     {
         Event::create([
             'name'  =>  $request->name,
-            'data_range'    =>  $this->getPrettyDate($request->dateRange),
+            'data_range'    =>  $request->dateRange,
             'description'   =>  $request->description,
             'user_id'       =>  $request->user()->id,
             'school_id'     =>  $request->user()->userClass->school->id
