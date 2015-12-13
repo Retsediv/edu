@@ -17,6 +17,7 @@ elixir(function(mix) {
         'vendor/moment.min.js',
         'vendor/popup.min.js',
         'vendor/semantic.min.js',
+        'component/task.js',
         'main.js',
         'vendor/tinymce.min.js'
     ], 'public/js/main.js');

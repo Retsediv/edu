@@ -43,8 +43,8 @@ clear: both;
     display: inline-flex;
 }
 
-.box .timetable:nth-child(1), .box .timetable:nth-child(2) {
-    width: 49.5%;
+.box .timetable:nth-child(3), .box .timetable:nth-child(2) {
+    width: 49%;
 }
 
 .box .timetable {
@@ -96,5 +96,9 @@ i#done, .fa-remove:hover {
 
 .ui.inverted.menu {
     background-color: #37424d;
+}
+
+.tools {
+    float: right;
 }
 

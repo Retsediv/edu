@@ -17,23 +17,22 @@
                         <thead><tr>
                             <th style="width: 100%; text-align: center;" colspan="3">
                                 Понеділок
-                                <!-- General tools such as edit or delete-->
-                                <div class="tools"><i class="fa fa-plus" id="add" data-id="{{ $i }}"></i></div>
+                                <div class="tools"><i class="plus icon green" id="all"></i></div>
                             </th>
                         </tr></thead>
                         <thead><tr>
                             <th style="width: 5%">№</th>
-                            <th style="width: 70%">Урок</th>
-                            <th style="width: 25%">Аудиторія</th>
+                            <th style="width: 80%">Урок</th>
+                            <th style="width: 10%; min-width: 100px;">Аудиторія</th>
                         </tr></thead>
 
-                        @for($j = 1; $j<rand(1,6); $j++)
+                        @for($j = 1; $j<=4; $j++)
                         <tr>
                             <td>{{ $j }}</td>
                             <td>
                                 <input style="width: 90%; float: left;" class="form-control timetable-input" name="lessons[{{ $i }}][]" placeholder="Classroom" type="text">
                                 <div class="tools">
-                                    <i class="fa fa-remove" id="remove"></i>
+                                    <i class="minus icon red" id="all"></i>
                                 </div>
                             </td>
                             <td><input class="form-control timetable-input" name="classroom[{{ $i }}][]" placeholder="Classroom" type="text"></td>

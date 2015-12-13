@@ -1,6 +1,8 @@
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="main-sidebar three wide column">
 
+    @yield('sidebar_menu')
+
     <section class="sidebar">
         <div class="ui vertical menu">
             <div class="item">
@@ -30,6 +32,12 @@
             <a class="item {{ Html::is_active('timetable') }}" href="{{ URL::route('timetable') }}">
                 <i class="table icon"></i> Розклад уроків
             </a>
+            <a class="item {{ Html::is_active('poll') }}" href="{{ URL::route('poll') }}">
+                <i class="book icon"></i> Тестування
+            </a>
+            <a class="item {{ Html::is_active('blog') }}" href="{{ URL::route('blog') }}">
+                <i class="book icon"></i> Блог
+            </a>
 
             <div class="ui dropdown item">
                 More
@@ -42,6 +50,9 @@
                 </div>
             </div>
         </div>
+
+
+
 
     </section>
     <!-- /.sidebar -->

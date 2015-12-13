@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edu project</title>
-    <meta name="csrf-token" content="<?php echo csrf_token(); ?>">
+    <meta name="csrf-token" id="token" content="<?php echo csrf_token(); ?>">
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -30,10 +30,13 @@
 <!-- ./wrapper -->
 @include('templates.footer')
 
-
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.js"></script>
 
 <!-- REQUIRED JS SCRIPTS -->
 <script src="{{ URL::asset('/js/main.js') }}"></script>
+
+<script src="{{ URL::asset('/js/blog.js') }}"></script>
 
 <script>
     $(document).ready(function () {

@@ -4,16 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Blog extends Model
 {
-    protected $table = 'tasks';
+    protected $table = 'blog';
 
     public $timestamps = false;
 
-    protected $fillable = ['name', 'deadline', 'user_id'];
+    protected $fillable = ['title', 'body', 'user_id'];
 
-    public function getUserByTask()
+    public function author()
     {
         return $this->belongsTo('App\Models\User');
     }
+
 }
