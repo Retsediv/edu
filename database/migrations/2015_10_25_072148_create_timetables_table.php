@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTimetableTable extends Migration
+class CreateTimetablesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,13 @@ class CreateTimetableTable extends Migration
      */
     public function up()
     {
-        Schema::create('migration', function(Blueprint $table){
+        Schema::create('timetables', function(Blueprint $table){
             $table->increments('id');
             $table->integer('school_id');
             $table->integer('order');
             $table->integer('day');
             $table->string('lesson_name');
+            $table->integer('auditory');
         });
     }
 

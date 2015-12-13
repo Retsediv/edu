@@ -5,31 +5,31 @@
 @section('page')
 
 
-<!-- TO-DO LIST -->
-<section class="ui seven wide column segment piled">
+        <!-- TO-DO LIST -->
+<section class="ui seven wide column segment piled load">
     <h3 class="ui header">Список справ</h3>
 
-    <div class="ui relaxed divided list todo-list">
-        @foreach($tasks as $task)
-            <div class="item {{ $task->progress }}">
-                <input value="{{ $task->id }}" name="taskDone" type="hidden">
+    <div class="ui relaxed divided list todo-list" id="tasks">
 
-                <div class="content" style="float: left;">
-                    <a class="header">{{ $task->name }}</a>
+        <div v-for="task in tasks" class="item @{{ task.progress }}">
+            <div class="content form ui" style="float: left;">
+                <a class="header" v-on:dblclick="editTask = task" v-show="editTask != task">@{{ task.name }}</a>
+                <input type="text" class="form-controll" v-model="editTask.name" v-show="editTask == task"
+                       v-on:keyup.13="taskEdit(task, editTask)">
 
-                    <div class="description">{{ $task->deadline }}</div>
-                </div>
-                <div class="tools" style="float: right">
-                    <i class="fa fa-check checkmark icon" id="done"></i>
-                    <i class="fa fa-remove remove icon" id="remove"></i>
-                </div>
+                <div class="description">@{{ task.deadline }}</div>
             </div>
-        @endforeach
+            <div class="tools" style="">
+                <i class="fa fa-check checkmark icon" id="done" v-on:click="taskDone(task)"></i>
+                <!--<a href=""><i class="fa fa-edit edit icon" id="edit"></i></a>-->
+                <i class="fa fa-remove remove icon" id="remove" v-on:click="taskRemove(task)"></i>
+            </div>
+        </div>
     </div>
 
 
-    <button class="ui right plus icon button" style="float: right;"><a href="{{ route('tasks') }}"><i
-                    class="right arrow icon"></i>
+    <button class="ui right plus icon button" style="float: right;"><a href="{{ route('tasks') }}">
+            <i class="right arrow icon"></i>
             Добавити</a>
     </button>
 

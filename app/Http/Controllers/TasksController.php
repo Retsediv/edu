@@ -15,75 +15,78 @@ class TasksController extends Controller
      */
     public function tasksList(Request $request)
     {
-        $tasks = $request->user()->tasks;
-        return view('page.tasks', ['tasks' => $tasks]);
+        return view('page.tasks');
     }
 
+
     /**
-     * Function, that create a new task
+     * API function to get all tasks from db of current user.
+     * @param Request $request
+     * @return mixed
+     */
+    public function getAllTasks(Request $request)
+    {
+        $tasks = $request->user()->tasks;
+        return response()->json($tasks);
+    }
+
+
+    /**
+     * API function, that create a new task
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function createTask(Request $request)
     {
+
         Task::create([
             'name' => $request->name,
             'deadline' => $request->deadline,
             'user_id' => $request->user()->id
         ]);
 
-        return back();
     }
 
     /**
-     *Ajax function for make task done
+     *API function for make task done
      * @param Request $request
      */
     public function taskDone(Request $request)
     {
-        $this->checkId($_POST['task_id'], $request);
+        $taskId = $request->id;
+        $this->checkId($taskId, $request);
 
-        $task = Task::where('id', '=', $_POST['task_id'])->firstOrFail();
+        $task = Task::where('id', '=', $taskId)->firstOrFail();
         $task->progress = 'done';
         $task->save();
 
     }
 
     /**
-     *Ajax function to remove task
+     *API function to remove task
      * @param Request $request
      */
     public function taskRemove(Request $request)
     {
-        $this->checkId($_POST['task_id'], $request);
+        $taskId = $request->id;
 
-        $task = Task::where('id', '=', $_POST['task_id'])->firstOrFail();
+        $this->checkId($taskId, $request);
+
+        $task = Task::where('id', '=', $taskId)->firstOrFail();
         $task->delete();
     }
 
-    /**
-     * @param $id
-     * @param Request $request
-     * @return \Illuminate\View\View
-     */
-    public function taskEdit($id, Request $request)
+    public function taskEdit(Request $request)
     {
+        $id = $request->id;
+
         $this->checkId($id, $request);
 
-        $task = Task::find($id);
-        $tasks = $request->user()->tasks;
-
-        return view('page.tasks', ['editask' => $task, 'tasks' => $tasks]);
-    }
-
-    public function taskEditPatch($id, Request $request)
-    {
-        $this->checkId($id, $request);
         $task = Task::find($id);
         $task->name = $request->name;
         $task->deadline = $request->deadline;
         $task->save();
-        return redirect(route('tasks'));
+
     }
 
     public function checkId($id, $request)

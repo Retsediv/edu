@@ -53,7 +53,8 @@
 
         </div>
 
-            <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Добавити</button>
+        <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Добавити
+        </button>
 
         {!! Form::close() !!}
 
