@@ -102,3 +102,36 @@ i#done, .fa-remove:hover {
     float: right;
 }
 
+/* Polling system */
+
+.wrong{
+    background: rgba(255, 0, 0, 0.78) none repeat scroll 0% 0%;;
+}
+
+.success{
+    background: rgba(0, 128, 0, 0.73) none repeat scroll 0% 0%;
+}
+
+.ui.radio.checkbox {
+    padding: 5px;
+}
+
+.poll-btn {
+    padding: 25px !important;
+    margin: 100px auto !important;
+    font-size: 24px !important;
+    font-weight: bold !important;
+    display: block !important;
+}
+
+.poll-block {
+    display: none;
+}
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: block !important;
+}

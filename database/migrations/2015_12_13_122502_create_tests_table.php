@@ -17,6 +17,7 @@ class CreateTestsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('user_id');
+            $table->timestamps();
         });
     }
 
