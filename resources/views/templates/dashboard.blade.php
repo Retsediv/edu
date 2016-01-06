@@ -38,6 +38,8 @@
 
 <script src="{{ URL::asset('/js/blog.js') }}"></script>
 
+<script src="{{ URL::asset('/js/poll.js') }}"></script>
+
 <script>
     $(document).ready(function () {
 

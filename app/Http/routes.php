@@ -50,7 +50,16 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     Route::get('/poll',
         ['as' => 'poll',
-            'uses' => 'PollController@index']);
+         'uses' => 'PollController@index']);
+
+    Route::get('/poll/{id}',
+        ['as' => 'poll.one',
+         'uses' => 'PollController@getTest']);
+
+    Route::get('/api/poll/all', 'PollController@getAllTests');
+    Route::get('/api/poll/{id}/answers', 'PollController@getAllAnswersToTest');
+    Route::get('/api/poll/{id}/questions', 'PollController@getQuestions');
+    Route::get('/api/poll/answer/{id}', 'PollController@getAnswersToQuestion');
 
     /* Blog routes */
 
@@ -120,7 +129,7 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     });
 
-    /* SIMPLE API(need fix) */
+    /* (need fix) */
     Route::group(['namespace' => 'Auth'], function () {
 
         Route::post('auth/get/area', 'AuthController@getArea');
@@ -129,7 +138,7 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     });
 
-    /* ADD A NEW SCHOOL */
+    /* ADD A NEW SCHOOL (Alpha version) */
 
     Route::get('addschool', [
         'as' => 'addschool',

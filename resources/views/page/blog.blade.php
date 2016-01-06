@@ -28,7 +28,7 @@
         <article class="ui segment" v-for="post in posts">
             <h2 class="ui header"><a href="/blog/@{{ post.id }}">@{{ post.title }}</a></h2>
 
-            <p>@{{ post.body | code }}</p>
+            <p>@{{{ post.body }}}</p>
         </article>
 
         <div class="ui buttons" style="display: flex;">
