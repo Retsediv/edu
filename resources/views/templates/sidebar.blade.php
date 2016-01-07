@@ -38,7 +38,9 @@
             <a class="item {{ Html::is_active('blog') }}" href="{{ URL::route('blog') }}">
                 <i class="book icon"></i> Блог
             </a>
-
+            <a class="item {{ Html::is_active('courses') }}" href="{{ URL::route('courses') }}">
+                <i class="book icon"></i> Курси
+            </a>
             <div class="ui dropdown item">
                 More
                 <i class="dropdown icon"></i>
