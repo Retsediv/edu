@@ -79,10 +79,12 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
         ['as' => 'blog.page',
          'uses' => 'BlogController@showPost']);
 
-
-
-
     Route::get('/api/blog/all', 'BlogController@getAll');
+
+    /* Courses routes */
+    Route::get('/courses',
+        ['as' => 'courses',
+         'uses' => 'CoursesController@index']);
 
 });
 
