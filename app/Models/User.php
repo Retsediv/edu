@@ -38,11 +38,19 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     protected $hidden = ['password', 'remember_token'];
 
 
+    /**
+     * Return user school
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function school()
     {
         return $this->belongsTo('App\Models\School');
     }
 
+    /**
+     * Return user class
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function userClass()
     {
         return $this->belongsTo('App\Models\Classes', 'class_id');
@@ -67,10 +75,20 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * Return tasks that user created
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tasks()
     {
         return $this->hasMany('App\Models\Task');
+    }
+
+    /**
+     * Return courses, where user is author.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course');
     }
 }
