@@ -22,6 +22,8 @@ class PollController extends Controller
     }
 
     /**
+     * Testing view(page)
+     *
      * @param $id
      * @return \Illuminate\View\View
      */
@@ -39,6 +41,8 @@ class PollController extends Controller
     }
 
     /**
+     * Return a array of all questions
+     *
      * @param $id
      * @return Test
      */
@@ -49,6 +53,7 @@ class PollController extends Controller
     }
 
     /**
+     * Return a array with answers to one question
      * @param $id
      * @return TestQuestion
      */
@@ -58,13 +63,18 @@ class PollController extends Controller
         return $answers;
     }
 
+    /**
+     * Return a array with all answers for questions: [1] => [],[],[]
+     *                                                [2] => [],[],[]
+     * @param $id
+     * @return array
+     */
     public function getAllAnswersToTest($id)
     {
-        $test = new Test();
-        $test = $test->find($id);
-
-        $questions = $test->questions()->get();
         $answers = [];
+
+        $test = Test::find($id);
+        $questions = $test->questions()->get();
 
         foreach($questions as $question){
             $answers[$question->id] = $question->answers()->get()->toArray();

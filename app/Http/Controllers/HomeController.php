@@ -16,12 +16,13 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $tasks = $request->user()->tasks;
-
-        $school_id = $request->user()->userClass->school->id;
+        $user = $request->user();
+        $tasks = $user->tasks;
+        $school_id = $user->userClass->school->id;
 
         $events = new Event();
         $events = $events->getEventsBySchool($school_id);
+
         return view('page.index', ['tasks' => $tasks, 'events' => $events]);
     }
 

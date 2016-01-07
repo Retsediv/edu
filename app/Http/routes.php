@@ -6,25 +6,25 @@ use App\Models\Blog;
 /* DASHBOARD */
 Route::group(['middleware' => ['auth', 'role:teacher,student,director']], function () {
 
+    /* Home page */
     Route::get('/',
         ['as' => 'home',
             'uses' => 'HomeController@index']);
 
-
+    /* Event routes */
     Route::get('/events',
         ['as' => 'events',
             'uses' => 'EventsController@events']);
 
     Route::post('/events',
         ['as' => 'events',
-            'uses' => 'EventsController@createEvent']);
+         'uses' => 'EventsController@createEvent']);
 
 
     /* Tasks routes */
     Route::get('/tasks',
         ['as' => 'tasks',
-            'uses' => 'TasksController@tasksList']);
-
+         'uses' => 'TasksController@tasksList']);
     Route::get('api/tasks/all', 'TasksController@getAllTasks');
     Route::post('api/tasks/create', 'TasksController@createTask');
     Route::post('api/tasks/done', 'TasksController@taskDone');
@@ -35,27 +35,22 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
     /* Timetable routes */
     Route::get('/timetable',
         ['as' => 'timetable',
-            'uses' => 'TimeTableController@timeTableShow']);
-
+         'uses' => 'TimeTableController@timeTableShow']);
     Route::get('/timetable/create',
         ['as' => 'timetable.create',
-            'uses' => 'TimeTableController@timeTableCreate']);
-
+         'uses' => 'TimeTableController@timeTableCreate']);
     Route::post('/timetable/create',
         ['as' => 'timetable.create',
-            'uses' => 'TimeTableController@timeTableCreatePost']);
+         'uses' => 'TimeTableController@timeTableCreatePost']);
 
 
     /* Polling routes */
-
     Route::get('/poll',
         ['as' => 'poll',
          'uses' => 'PollController@index']);
-
     Route::get('/poll/{id}',
         ['as' => 'poll.one',
          'uses' => 'PollController@getTest']);
-
     Route::get('/api/poll/all', 'PollController@getAllTests');
     Route::get('/api/poll/{id}/answers', 'PollController@getAllAnswersToTest');
     Route::get('/api/poll/{id}/questions', 'PollController@getQuestions');
@@ -66,19 +61,15 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
     Route::get('/blog',
         ['as' => 'blog',
          'uses' => 'BlogController@index']);
-
     Route::get('/blog/create',
         ['as' => 'blog.create',
-            'uses' => 'BlogController@create']);
-
+         'uses' => 'BlogController@create']);
     Route::post('/blog/create',
         ['as' => 'blog.create',
-            'uses' => 'BlogController@postCreate']);
-
+         'uses' => 'BlogController@postCreate']);
     Route::get('/blog/{id}',
         ['as' => 'blog.page',
          'uses' => 'BlogController@showPost']);
-
     Route::get('/api/blog/all', 'BlogController@getAll');
 
     /* Courses routes */
@@ -88,63 +79,63 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
 });
 
-    /* AUTHENTIFICATION */
+/* AUTHENTIFICATION */
 
-    Route::group(['namespace' => 'Auth'], function () {
+Route::group(['namespace' => 'Auth'], function () {
 
-        Route::get('/auth/login',
-            ['as' => 'login',
-                'uses' => 'AuthController@getLogin']);
+    Route::get('/auth/login',
+        ['as' => 'login',
+            'uses' => 'AuthController@getLogin']);
 
-        Route::post('/auth/login',
-            ['as' => 'login',
-                'uses' => 'AuthController@postLogin']);
+    Route::post('/auth/login',
+        ['as' => 'login',
+            'uses' => 'AuthController@postLogin']);
 
-        Route::get('/auth/register',
-            ['as' => 'register',
-                'uses' => 'AuthController@getRegister']);
+    Route::get('/auth/register',
+        ['as' => 'register',
+            'uses' => 'AuthController@getRegister']);
 
-        Route::post('/auth/register',
-            ['as' => 'register',
-                'uses' => 'AuthController@postRegister']);
+    Route::post('/auth/register',
+        ['as' => 'register',
+            'uses' => 'AuthController@postRegister']);
 
-        Route::get('/logout',
-            ['as' => 'logout',
-                'uses' => 'AuthController@getLogout']);
+    Route::get('/logout',
+        ['as' => 'logout',
+            'uses' => 'AuthController@getLogout']);
 
-        Route::get('/password',
-            ['as' => 'password',
-                'uses' => 'PasswordController@getEmail']);
+    Route::get('/password',
+        ['as' => 'password',
+            'uses' => 'PasswordController@getEmail']);
 
-        Route::post('/password',
-            ['as' => 'password',
-                'uses' => 'PasswordController@postEmail']);
+    Route::post('/password',
+        ['as' => 'password',
+            'uses' => 'PasswordController@postEmail']);
 
-        Route::get('/password/reset/{token}',
-            ['as' => 'reset',
-                'uses' => 'PasswordController@getReset']);
+    Route::get('/password/reset/{token}',
+        ['as' => 'reset',
+            'uses' => 'PasswordController@getReset']);
 
-        Route::post('password/reset',
-            ['as' => 'reset',
-                'uses' => 'PasswordController@postReset']);
+    Route::post('password/reset',
+        ['as' => 'reset',
+            'uses' => 'PasswordController@postReset']);
 
 
-    });
+});
 
-    /* (need fix) */
-    Route::group(['namespace' => 'Auth'], function () {
+/* (need fix) */
+Route::group(['namespace' => 'Auth'], function () {
 
-        Route::post('auth/get/area', 'AuthController@getArea');
-        Route::post('auth/get/town', 'AuthController@getTown');
-        Route::post('auth/get/school', 'AuthController@getSchool');
+    Route::post('auth/get/area', 'AuthController@getArea');
+    Route::post('auth/get/town', 'AuthController@getTown');
+    Route::post('auth/get/school', 'AuthController@getSchool');
 
-    });
+});
 
-    /* ADD A NEW SCHOOL (Alpha version) */
+/* ADD A NEW SCHOOL (Alpha version) */
 
-    Route::get('addschool', [
-        'as' => 'addschool',
-        'uses' => 'AddSchoolController@index']);
-    Route::post('addschool', [
-        'as' => 'addschool',
-        'uses' => 'AddSchoolController@addSchool']);
+Route::get('addschool', [
+    'as' => 'addschool',
+    'uses' => 'AddSchoolController@index']);
+Route::post('addschool', [
+    'as' => 'addschool',
+    'uses' => 'AddSchoolController@addSchool']);
