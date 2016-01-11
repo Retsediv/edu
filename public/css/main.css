@@ -135,3 +135,11 @@ i#done, .fa-remove:hover {
 .show {
     display: block !important;
 }
+
+.margin-bottom {
+    margin-bottom: 25px;
+}
+
+.padding-top {
+    padding-top: 25px;
+}

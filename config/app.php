@@ -159,11 +159,9 @@ return [
          */
 
         Collective\Html\HtmlServiceProvider::class,
-
         Pingpong\Widget\WidgetServiceProvider::class,
-
-        SmartCrowd\Rbac\RbacServiceProvider::class
-
+        SmartCrowd\Rbac\RbacServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class
 
     ),
 
@@ -215,7 +213,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Widget'    => Pingpong\Widget\WidgetFacade::class,
-        'Rbac'      => SmartCrowd\Rbac\Facades\Rbac::class
+        'Rbac'      => SmartCrowd\Rbac\Facades\Rbac::class,
+        'Image'     => Intervention\Image\Facades\Image::class
 
     ],
 

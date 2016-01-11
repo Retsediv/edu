@@ -8,13 +8,15 @@ class Course extends Model
 {
     protected $table = 'courses';
 
+    public $fillable = ['user_id', 'title', 'description', 'image'];
+
     /**
      * Return an author of a course
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function author()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
     /**
@@ -24,5 +26,26 @@ class Course extends Model
     public function members()
     {
         return $this->belongsToMany('App\Models\User', 'course_member', 'course_id', 'user_id');
+    }
+
+    /**
+     * Return all lessons of course
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function lessons()
+    {
+        return $this->hasMany('App\Models\CourseLesson');
+    }
+
+    /**
+     * @param Course $course
+     * @return string
+     */
+    public static function getAuthorFullName(Course $course)
+    {
+        $author = $course->author()->get()->first();
+
+        return $author->name . ' ' . $author->last_name;
     }
 }

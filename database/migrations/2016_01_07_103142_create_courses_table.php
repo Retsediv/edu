@@ -16,6 +16,7 @@ class CreateCoursesTable extends Migration
             $t->increments('id');
             $t->string('title');
             $t->text('description');
+            $t->string('image');
             $t->integer('user_id');
             $t->timestamps();
         });

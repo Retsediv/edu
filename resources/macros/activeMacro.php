@@ -6,3 +6,11 @@ Html::macro('is_active', function($route)
         return "active";
     }
 });
+
+Html::macro('is_active_lesson', function($route)
+{
+
+    if(Request::fullUrl() == $route){
+        return "active";
+    }
+});

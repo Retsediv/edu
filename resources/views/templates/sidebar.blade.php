@@ -23,6 +23,9 @@
             <a class="item {{ Html::is_active('/') }}" href="{{ URL::route('home') }}">
                 <i class="home icon"></i> Головна
             </a>
+            <a class="item {{ Html::is_active('courses') }}" href="{{ URL::route('courses') }}">
+                <i class="book icon"></i> Курси
+            </a>
             <a class="item {{ Html::is_active('tasks') }}" href="{{ URL::route('tasks') }}">
                 <i class="check circle icon"></i> Список справ
             </a>
@@ -38,19 +41,18 @@
             <a class="item {{ Html::is_active('blog') }}" href="{{ URL::route('blog') }}">
                 <i class="book icon"></i> Блог
             </a>
-            <a class="item {{ Html::is_active('courses') }}" href="{{ URL::route('courses') }}">
-                <i class="book icon"></i> Курси
-            </a>
+
             <div class="ui dropdown item">
-                More
+                DropDown
                 <i class="dropdown icon"></i>
 
                 <div class="menu">
-                    <a class="item"><i class="edit icon"></i> Edit Profile</a>
-                    <a class="item"><i class="globe icon"></i> Choose Language</a>
+                    <a class="item"><i class="edit icon"></i>Переглянути</a>
+                    <a class="item"><i class="globe icon"></i>Власні курси</a>
                     <a class="item"><i class="settings icon"></i> Account Settings</a>
                 </div>
             </div>
+
         </div>
 
 

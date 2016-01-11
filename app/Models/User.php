@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Course;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -90,5 +91,42 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function courses()
     {
         return $this->hasMany('App\Models\Course');
+    }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    public static function getUserFullNameById($id)
+    {
+        $user = self::find($id);
+        return $user->name . ' ' . $user->last_name;
+    }
+
+    /**
+     * @param $id
+     * @param $user
+     * @return bool
+     */
+    public function isUserMemberOfCourse($id, $user)
+    {
+        $course = (new Course())->find($id);
+        if ($course->members()->get()->contains($user->id)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * @param Course $course
+     * @return bool
+     */
+    public function isAuthor(Course $course)
+    {
+        $authorId = $course->author()->get()->first()->id;
+        if ($authorId == Auth::user()->id){
+            return true;
+        }
+        return false;
     }
 }

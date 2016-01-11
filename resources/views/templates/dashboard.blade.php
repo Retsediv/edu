@@ -33,7 +33,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.js"></script>
 
-<!-- REQUIRED JS SCRIPTS -->
+<!-- JS SCRIPTS -->
 <script src="{{ URL::asset('/js/main.js') }}"></script>
 
 <script src="{{ URL::asset('/js/blog.js') }}"></script>
@@ -57,6 +57,12 @@
             on: 'click',
             delay: { show: 150, hide: 800 }
         });
+
+        $('.special.cards .image').dimmer({
+            on: 'hover'
+        });
+
+        $('.ui.dropdown').dropdown();
     });
 
 

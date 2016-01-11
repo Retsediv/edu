@@ -13,7 +13,9 @@
         "barryvdh/laravel-ide-helper": "^2.0",
         "laravelcollective/html": "~5.0",
         "doctrine/dbal": "~2.3",
-        "pingpong/widget" : "~2.0"
+        "pingpong/widget" : "~2.0",
+        "intervention/image": "2.*",
+        "smart-crowd/laravel-rbac":"dev-master"
 
     },
     "require-dev": {
