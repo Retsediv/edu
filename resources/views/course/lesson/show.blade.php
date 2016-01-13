@@ -23,7 +23,6 @@
 
                     {!! $currentLesson->body !!}
 
-
                 </div>
             </div>
 

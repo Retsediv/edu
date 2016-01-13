@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
+use App\Repositories\Task\TaskInterface;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TasksController extends Controller
 {
+
+    use AuthorizesRequests;
+
+    private $task;
+
+    public function __construct(TaskInterface $task)
+    {
+        $this->task = $task;
+    }
 
     /**
      * @param Request $request
@@ -26,7 +37,8 @@ class TasksController extends Controller
      */
     public function getAllTasks(Request $request)
     {
-        $tasks = $request->user()->tasks;
+        $tasks = $this->task->forUser($request);
+
         return response()->json($tasks);
     }
 
@@ -38,61 +50,35 @@ class TasksController extends Controller
      */
     public function createTask(Request $request)
     {
-
-        Task::create([
-            'name' => $request->name,
-            'deadline' => $request->deadline,
-            'user_id' => $request->user()->id
-        ]);
-
+        $this->task->create($request);
     }
 
     /**
-     *API function for make task done
+     * API function for make task done
      * @param Request $request
      */
     public function taskDone(Request $request)
     {
         $taskId = $request->id;
-        $this->checkId($taskId, $request);
 
-        $task = Task::where('id', '=', $taskId)->firstOrFail();
-        $task->progress = 'done';
-        $task->save();
-
+        $this->task->done($taskId);
     }
 
     /**
-     *API function to remove task
+     * API function to remove task
      * @param Request $request
      */
     public function taskRemove(Request $request)
     {
         $taskId = $request->id;
 
-        $this->checkId($taskId, $request);
-
-        $task = Task::where('id', '=', $taskId)->firstOrFail();
-        $task->delete();
+        $this->task->remove($taskId);
     }
 
     public function taskEdit(Request $request)
     {
-        $id = $request->id;
+        $taskId = $request->id;
 
-        $this->checkId($id, $request);
-
-        $task = Task::find($id);
-        $task->name = $request->name;
-        $task->deadline = $request->deadline;
-        $task->save();
-
-    }
-
-    public function checkId($id, $request)
-    {
-        if(!($request->user()->tasks->contains($id))){
-            abort(404);
-        }
+        $this->task->edit($taskId, $request);
     }
 }

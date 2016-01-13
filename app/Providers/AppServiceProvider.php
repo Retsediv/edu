@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 
+use App\Repositories\Task\TaskInterface;
+use App\Repositories\Task\TaskRepository;
 use Illuminate\Support\ServiceProvider;
 use View;
 use Auth;
@@ -31,6 +33,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //$this->app->bind('App\Ioc\Driver',  'App\Ioc\GitDriver');
+        $this->app->bind(TaskInterface::class,  TaskRepository::class);
     }
 }
