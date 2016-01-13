@@ -50,6 +50,8 @@ class TaskRepository implements TaskInterface
 
         $task->name = $request->name;
         $task->deadline = $request->deadline;
+        $task->progress = '';
+
         $task->save();
     }
 
