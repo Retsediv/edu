@@ -7,7 +7,7 @@ new Vue({
         },
 
         question: {
-            id:1,
+            id:2,
             answers:[
                 1,2,3,4
             ]

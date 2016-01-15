@@ -15,7 +15,8 @@
         "doctrine/dbal": "~2.3",
         "pingpong/widget" : "2.*",
         "intervention/image": "2.*",
-        "smart-crowd/laravel-rbac":"dev-master"
+        "smart-crowd/laravel-rbac":"dev-master",
+        "laracasts/flash": "^1.3"
 
     },
     "require-dev": {

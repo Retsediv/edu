@@ -30,8 +30,8 @@
 <!-- ./wrapper -->
 @include('templates.footer')
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.4/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.js"></script>
+<script src="{{ URL::asset("js/vue/vue.js") }} "></script>
+<script src="{{ URL::asset('js/vue/vue-resource.js') }} "></script>
 
 <!-- JS SCRIPTS -->
 <script src="{{ URL::asset('/js/main.js') }}"></script>
@@ -64,8 +64,6 @@
         $('.special.cards .image').dimmer({
             on: 'hover'
         });
-
-        $('.ui.checkbox').checkbox();
 
         $('.ui.dropdown').dropdown();
     });

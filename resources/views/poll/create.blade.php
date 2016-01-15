@@ -23,7 +23,7 @@
 
                 <label>Відповіді(правильну відзначити):</label>
                 <div class="fields inline" v-for="id in [1,2,3,4]">
-                    <div class="ui radio checkbox">
+                    <div class="field">
                         <input type="radio" name="questions[@{{ range }}][correct]" checked="false" value="@{{ id }}" tabindex="0" class="hidden">
                     </div>
                     <div class="field">
