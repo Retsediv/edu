@@ -24,6 +24,8 @@
     @allowed('event.create')
     <div class="ui sixteen wide column segment container">
 
+        @include('partitials.error')
+
         <h3 class="box-title">Добавити нову подію</h3>
 
         <!-- /.box-header -->
@@ -53,21 +55,13 @@
 
         </div>
 
-        <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Добавити
+        <button type="submit" class="ui right plus icon button" style="margin-top: 10px;">
+            <i class="refresh icon"></i>Добавити
         </button>
 
         {!! Form::close() !!}
 
-                <!-- /.box-body -->
-
-        <!-- /.box-footer -->
-
-        @if($errors->has())
-            @foreach ($errors->all() as $error)
-                <div style="font-weight: bold; padding: 5px;">{{ $error }}</div>
-            @endforeach
-        @endif
-
+        <!-- /.box-body -->
 
     </div>
 
