@@ -21,7 +21,7 @@
     </div>
 
 
-    @allowed('events.create')
+    @allowed('event.create')
     <div class="ui sixteen wide column segment container">
 
         <h3 class="box-title">Добавити нову подію</h3>

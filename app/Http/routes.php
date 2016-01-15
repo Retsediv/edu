@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     /* Polling routes */
     Route::get('/poll', ['as' => 'poll', 'uses' => 'PollController@index']);
+    Route::get('/poll/create', ['as' => 'poll.create', 'uses' => 'PollController@create']);
+    Route::post('/poll/create', ['as' => 'poll.create', 'uses' => 'PollController@store']);
     Route::get('/poll/{id}', ['as' => 'poll.one', 'uses' => 'PollController@getTest']);
     Route::get('/api/poll/all', 'PollController@getAllTests');
     Route::get('/api/poll/{id}/answers', 'PollController@getAllAnswersToTest');

@@ -16,7 +16,7 @@
                 <div class="field ui column wide fifteen" style="margin: 0;">
                     <label for="inputName" class="col-sm-2 control-label">Назва уроку</label>
 
-                    <input name="title" class="form-control" id="inputName" placeholder="Як ви назвете ваш курс?"
+                    <input name="title" class="form-control" id="inputName" placeholder="Як ви назвете цей урок?"
                            type="text" required="required">
                 </div>
 

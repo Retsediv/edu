@@ -143,3 +143,7 @@ i#done, .fa-remove:hover {
 .padding-top {
     padding-top: 25px;
 }
+
+.text-right {
+    text-align: right;
+}

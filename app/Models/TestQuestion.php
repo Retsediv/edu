@@ -8,11 +8,25 @@ class TestQuestion extends Model
 {
     protected $table = 'test_questions';
 
+    protected $fillable = ['body'];
+
+    public $timestamps = false;
+
+    /**
+     * Return test for those belogs question
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function qTest(){
-        return $this->belongsTo('App/Models/Test');
+        return $this->belongsTo(Test::class);
     }
 
+    /**
+     * Return all answers for this question
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function answers(){
-        return $this->hasMany('\App\Models\TestQuestionAnswer');
+        return $this->hasMany(TestQuestionAnswer::class);
     }
 }

@@ -22,7 +22,7 @@
 
                 <div class="field ui column wide nine" style="margin: 0;">
                     <label for="description" class="col-sm-2 control-label">Детальний опис</label>
-                    <textarea id="wswj" name="description" required="required"></textarea>
+                    <textarea id="wswj" name="description"></textarea>
                 </div>
 
                 <div class="field ui column wide nine" style="margin: 0;">

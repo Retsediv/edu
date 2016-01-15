@@ -3,22 +3,37 @@
 @section('page_title', 'Тестування')
 
 @section('page')
-    <div class="container ui" style="margin: 25px 0;">
+    <div class="container ui padding-top">
 
-        @foreach($tests as $test)
-        <div class="ui card twelve wide column" style="width: 100%;">
-            <div class="content">
-                <div class="header">{{ $test->title }}</div>
-                <p>{{ $test->description }}</p>
-            </div>
-            <div class="extra content">
-                {{ $test->created_at }}
+        @allowed('test.create')
+            <a href="{{ URL::route('poll.create') }}" style="color: #fff;">
+                <button class="ui button {{ getRandomColor() }}" style="width: 100%; display: block; margin-bottom: 20px;">
+                    Добавити новий тест
+                </button>
+            </a>
+        @endallowed
 
-                <a href="poll/{{ $test->id }}">Пройти</a>
-            </div>
+        <div class="ui four cards">
+
+            @foreach($tests as $test)
+                <div class="card">
+                    <div class="content">
+                        <div class="header">{{ $test->title }}</div>
+                        <hr />
+                        <p>{!! $test->description !!}</p>
+                    </div>
+                    <div class="extra content">
+                        <p class="text-right">{{ $user->getUserFullNameById($test->user_id) }}</p>
+                    </div>
+
+                    <a href="{{ route('poll.one', ['id' => $test->id]) }}">
+                        <div class="ui bottom attached button {{ getRandomColor() }}"><i class="checkmark icon"></i> Пройти тестування </div>
+                    </a>
+                </div>
+            @endforeach
+
         </div>
 
-        @endforeach
 
     </div>
 

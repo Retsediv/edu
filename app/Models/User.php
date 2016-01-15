@@ -94,6 +94,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tests()
+    {
+        return $this->hasMany('App\Models\Test');
+    }
+
+    /**
      * @param $id
      * @return string
      */

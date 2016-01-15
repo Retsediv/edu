@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\CourseLesson;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -45,7 +46,7 @@ class CoursesController extends Controller
     {
         $image = Input::file('image');
 
-        $filename = time() . '.' . Hash::make($image->getClientOriginalExtension());
+        $filename = Hash::make(time()) . '.' . $image->getClientOriginalExtension();
         $path = '/images/courses/';
         $moveDirectory = public_path($path);
         $image->move($moveDirectory, $filename);

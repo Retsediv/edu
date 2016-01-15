@@ -40,6 +40,9 @@
 
 <script src="{{ URL::asset('/js/poll.js') }}"></script>
 
+<script src="{{ URL::asset('/js/pollCreate.js') }}"></script>
+
+
 <script>
     $(document).ready(function () {
 
@@ -61,6 +64,8 @@
         $('.special.cards .image').dimmer({
             on: 'hover'
         });
+
+        $('.ui.checkbox').checkbox();
 
         $('.ui.dropdown').dropdown();
     });

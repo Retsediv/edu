@@ -1,11 +1,13 @@
 <?php
 
-Rbac::permission('events.create');
+Rbac::permission('event.create');
 Rbac::permission('blog.create');
+Rbac::permission('test.create');
 
 Rbac::role('teacher', [
-    'events.create',
-    'blog.create'
+    'event.create',
+    'blog.create',
+    'test.create'
 ]);
 
 /*

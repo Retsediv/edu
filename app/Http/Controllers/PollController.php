@@ -17,8 +17,10 @@ class PollController extends Controller
      */
     public function index()
     {
+
         $tests = $this->getAllTests();
         return view('poll.index', ['tests' => $tests]);
+
     }
 
     /**
@@ -28,7 +30,56 @@ class PollController extends Controller
      * @return \Illuminate\View\View
      */
     public function getTest($id){
-        return view('poll.getOne', ['id' => $id]);
+        return view('poll.get', ['id' => $id]);
+    }
+
+    /**
+     * Create a new test here
+     */
+    public function create()
+    {
+        return view('poll.create');
+    }
+
+    /**
+     * Store a new test
+     *
+     * @param Request $request
+     */
+    public function store(Request $request)
+    {
+        $test = new Test([
+            'title' => $request->title,
+            'description' => $request->description,
+            'retry' => $request->retry,
+            'per_page' => $request->per_page,
+            'allowed' => $request->allowed
+        ]);
+        $request->user()->tests()->save($test);
+
+        foreach($request->questions as $question){
+            $quest = new TestQuestion([
+                'body' => $question['name']
+            ]);
+
+            $test->questions()->save($quest);
+
+            // Id, of answer that is correct -1
+            $answers = [];
+            $correct = $question['correct'] - 1;
+            foreach ($question['answers'] as $answer) {
+                $answers[] = new TestQuestionAnswer([
+                    'answer' => $answer
+                ]);
+            }
+            $answers[$correct]->correct = true;
+            $answers[$correct]->save();
+
+            $quest->answers()->saveMany($answers);
+        }
+
+
+        return redirect(route('poll'));
     }
 
 
@@ -36,7 +87,7 @@ class PollController extends Controller
      * @return all tests(polls)
      */
     public function getAllTests(){
-        $tests = Test::all();
+        $tests = Test::allowed()->get();
         return $tests;
     }
 
@@ -48,8 +99,16 @@ class PollController extends Controller
      */
     public function getQuestions($id){
         $test = new Test();
-        $question = $test->find($id)->questions()->get();
-        return $question;
+
+        $questions = $test->find($id)->questions()->get()->toArray();
+        $test = $test->find($id);
+        $perPage = $test->per_page;
+
+        shuffle($questions);
+
+        $questions = array_slice($questions,0,$perPage);
+
+        return $questions;
     }
 
     /**

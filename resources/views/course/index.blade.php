@@ -60,7 +60,7 @@
                 </div>
                 @if($user->isAuthor($course))
                     <a href="{{ route('lesson.create', ['courseId' => $course->id]) }}">
-                        <div class="ui bottom attached button"><i class="add icon"></i>Добавити урок</div>
+                        <div class="ui bottom attached button {{ getRandomColor() }}"><i class="add icon"></i>Добавити урок</div>
                     </a>
                 @endif
             </div>

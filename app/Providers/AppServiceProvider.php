@@ -24,6 +24,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         require base_path() . '/resources/macros/activeMacro.php';
+        require base_path() . '/app/helpers.php';
     }
 
     /**
