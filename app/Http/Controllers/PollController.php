@@ -79,6 +79,7 @@ class PollController extends Controller
         }
 
 
+        flash()->success('Ви успішно добавили нове тестування!');
         return redirect(route('poll'));
     }
 

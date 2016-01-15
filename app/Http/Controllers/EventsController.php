@@ -38,6 +38,7 @@ class EventsController extends Controller
             'school_id'     =>  $request->user()->userClass->school->id
         ]);
 
+        flash()->success('Ви успішно добавили нову подію!');
         return back();
     }
 

@@ -39,6 +39,7 @@ class BlogController extends Controller
             'user_id' => $request->user()->id
         ]);
 
+        flash()->success('Ви успішно добавили нову статтю');
         return redirect(route('blog'));
     }
 

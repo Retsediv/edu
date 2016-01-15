@@ -68,6 +68,7 @@ class CoursesController extends Controller
             'user_id' => $request->user()->id
         ]);
 
+        flash()->success('Ви успішно добавили новий курс!');
         return redirect(route('courses'));
     }
 

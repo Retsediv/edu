@@ -145,24 +145,14 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
 
-        /*
-         * Laravel Debugbar
-         */
         //Barryvdh\Debugbar\ServiceProvider::class,
-
-        /*
-         * Laravel IDE Helper
-         */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-
-        /*
-         * Html Form and Elements
-         */
 
         Collective\Html\HtmlServiceProvider::class,
         Pingpong\Widget\WidgetServiceProvider::class,
         SmartCrowd\Rbac\RbacServiceProvider::class,
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ),
 
@@ -215,7 +205,8 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Widget'    => Pingpong\Widget\WidgetFacade::class,
         'Rbac'      => SmartCrowd\Rbac\Facades\Rbac::class,
-        'Image'     => Intervention\Image\Facades\Image::class
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'Flash'     => Laracasts\Flash\Flash::class,
 
     ],
 

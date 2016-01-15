@@ -53,6 +53,7 @@ class LessonController extends Controller
             'test_id' => $request->test_id
         ]);
 
+        flash()->success('Ви успішно добавили новий урок!');
         return redirect(route('courses.get', ['id' => $courseId]));
     }
 

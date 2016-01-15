@@ -147,3 +147,7 @@ i#done, .fa-remove:hover {
 .text-right {
     text-align: right;
 }
+
+.ui.message {
+    font-weight: bold;
+}
