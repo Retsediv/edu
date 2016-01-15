@@ -42,6 +42,15 @@ class EventsController extends Controller
         return back();
     }
 
+    public function delete($id)
+    {
+        $event = Event::findOrFail($id);
+        $event->delete();
+
+        flash('Ви успішно видалили подію!');
+        return back();
+    }
+
     /**
      * Helper function
      * @param $date

@@ -30,6 +30,7 @@ class PollController extends Controller
      * @return \Illuminate\View\View
      */
     public function getTest($id){
+
         return view('poll.get', ['id' => $id]);
     }
 
@@ -99,12 +100,11 @@ class PollController extends Controller
      * @return Test
      */
     public function getQuestions($id){
-        $test = new Test();
+        $test = Test::find($id);
 
-        $questions = $test->find($id)->questions()->get()->toArray();
-        $test = $test->find($id);
+        $questions = $test->questions()->get()->toArray();
+
         $perPage = $test->per_page;
-
         shuffle($questions);
 
         $questions = array_slice($questions,0,$perPage);

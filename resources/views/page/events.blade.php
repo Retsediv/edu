@@ -7,6 +7,11 @@
         @foreach($events as $event)
             <div class="ui card five wide column" style="margin: 10px 10px 0 0;">
                 <div class="content">
+                    @if($event->authorCheck($user))
+                        <a href="{{ route('events.delete', ['id' => $event->id]) }}" style="float: right;">
+                        <i class="close icon"></i>
+                        </a>
+                    @endif
                     <div class="header">{{ $event->name }}</div>
                     <div class="description">
                         <p> {!! $event->description !!}</p>

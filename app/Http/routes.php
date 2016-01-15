@@ -8,6 +8,7 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     /* Event routes */
     Route::get('/events', ['as' => 'events', 'uses' => 'EventsController@events']);
+    Route::get('/events/{id}', ['as' => 'events.delete', 'uses' => 'EventsController@delete']);
     Route::post('/events', ['as' => 'events', 'uses' => 'EventsController@createEvent']);
 
     /* Tasks routes */
