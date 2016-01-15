@@ -21,7 +21,9 @@
     @header()
     <div class="content-wrapper ui grid">
         @include('templates.sidebar')
+
         <div class="thirteen wide column">
+            @include('partitials.message')
             @yield('main')
         </div>
     </div>
@@ -63,6 +65,10 @@
 
         $('.special.cards .image').dimmer({
             on: 'hover'
+        });
+
+        $('.message .close').on('click', function() {
+            $(this).closest('.message').transition('fade');
         });
 
         $('.ui.dropdown').dropdown();
