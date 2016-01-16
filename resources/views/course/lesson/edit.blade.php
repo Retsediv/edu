@@ -7,22 +7,22 @@
 
         <div class="ui sixteen wide column segment container piled">
 
-            <h3 class="box-title">Добавити новий урок для курсу: {{ $course->title }}</h3>
+            <h3 class="box-title">Редагувати урок для курсу: {{ $course->title }}</h3>
 
             <!-- form start -->
-            {!! Form::open(['method' => 'post', 'route' => ['lesson.create', $course->id], 'class' => 'ui form', 'files' => true]) !!}
+            {!! Form::open(['method' => 'post', 'route' => ['lesson.edit', $course->id], 'class' => 'ui form']) !!}
             <div class="ui grid twelve column aligned center">
 
                 <div class="field ui column wide fifteen" style="margin: 0;">
                     <label for="inputName" class="col-sm-2 control-label">Назва уроку</label>
 
                     <input name="title" class="form-control" id="inputName" placeholder="Як ви назвете цей урок?"
-                           type="text" required="required">
+                           type="text" required="required" value="{{ $lesson->title }}">
                 </div>
 
                 <div class="field ui column wide fifteen" style="margin: 0;">
                     <label for="body" class="col-sm-2 control-label">Детальна інформація(д/з)</label>
-                    <textarea id="wswj" name="body"></textarea>
+                    <textarea id="wswj" name="body">{!! $lesson->body !!}</textarea>
                 </div>
 
                 <div class="field ui column wide fifteen" style="margin: 0;">
@@ -38,7 +38,7 @@
             </div>
 
             <button type="submit" class="ui plus icon primary button" style="margin-top: 10px;">
-                <i class="plus icon"></i>Добавити
+                <i class="plus icon"></i>Обновити
             </button>
 
             {!! Form::close() !!}
@@ -47,6 +47,7 @@
             <!-- /.box-footer -->
 
             @include('partitials.error')
+
 
         </div>
     </div>

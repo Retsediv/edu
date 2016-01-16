@@ -8,6 +8,8 @@ class CourseLesson extends Model
 {
     protected $table = 'course_lessons';
 
+    protected $guarden = ['id'];
+
     protected $fillable = ['title', 'course_id', 'test_id', 'body'];
 
     public function course()

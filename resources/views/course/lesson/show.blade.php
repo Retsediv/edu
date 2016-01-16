@@ -17,8 +17,13 @@
             </div>
             <div class="thirteen wide stretched column">
                 <div class="ui segment">
-                    @if($user->isAuthor($currentLesson->course()->get()->first()))
-                        <a href="{{ route('lesson.edit', ['id' => $currentLesson->id]) }}" style="display: block; float: right;"><button class="ui right labeled icon button"><i class="edit icon"></i> Редагувати </button></a>
+                    @if($user->isAuthor($currentLesson->course))
+                        <a href="{{ route('lesson.delete', ['id' => $currentLesson->id]) }}" style="display: block; float: right;">
+                            <button class="ui right labeled icon button"><i class="delete icon"></i> Видалити</button>
+                        </a>
+                        <a href="{{ route('lesson.edit', ['id' => $currentLesson->id]) }}" style="display: block; float: right;">
+                            <button class="ui right labeled icon button"><i class="edit icon"></i> Редагувати </button>
+                        </a>
                     @endif
 
                     {!! $currentLesson->body !!}

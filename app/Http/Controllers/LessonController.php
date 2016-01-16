@@ -81,7 +81,14 @@ class LessonController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lesson = CourseLesson::findOrFail($id);
+        $course = $lesson->course;
+
+        $userId = Auth::user()->id;
+        $tests = Test::where('user_id', '=', $userId)->get();
+
+
+        return view('course.lesson.edit', ['lesson' => $lesson, 'tests' => $tests, 'course' => $course]);
     }
 
     /**
@@ -91,9 +98,15 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        $lesson = CourseLesson::findOrFail($id);
+        $lesson->fill($request->all());
+        $lesson->save();
+
+        flash()->success('Ви успішно змінили урок!');
+        return redirect(route('lesson.get', ['id' => $id]));
+
     }
 
     /**
@@ -104,6 +117,12 @@ class LessonController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lesson = CourseLesson::findOrFail($id);
+        $courseId = $lesson->course->id;
+
+        $lesson->delete();
+
+        flash()->success('Ви успішно видалили урок!');
+        return redirect(route('courses.get', ['id' => $id]));
     }
 }

@@ -56,8 +56,9 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
 
     Route::get('/courses/lesson/create/{courseId}', ['as' => 'lesson.create', 'uses' => 'LessonController@create']);
     Route::post('/courses/lesson/create/{courseId}', ['as' => 'lesson.create', 'uses' => 'LessonController@store']);
-    Route::get('/courses/lesson/edit/{id}', ['as' => 'lesson.edit', 'uses' => 'LessonController@edit']);
-    Route::post('/courses/lesson/edit/{id}', ['as' => 'lesson.edit', 'uses' => 'LessonController@update']);
+    Route::get('/courses/lesson/{id}/edit', ['as' => 'lesson.edit', 'uses' => 'LessonController@edit']);
+    Route::post('/courses/lesson/{id}/edit', ['as' => 'lesson.edit', 'uses' => 'LessonController@update']);
+    Route::get('/courses/lesson/{id}/delete', ['as' => 'lesson.delete', 'uses' => 'LessonController@destroy']);
     Route::get('/courses/lesson/{id}', ['as' => 'lesson.get', 'uses' => 'LessonController@show']);
 });
 
