@@ -15,6 +15,15 @@
     <div class="container ui" id="blog">
         <br>
         <article class="ui segment">
+            @if($post->authorCheck($user))
+                <a href="{{ route('blog.edit', ['id' => $post->id]) }}" style="display: block; float: right;">
+                    <button class="ui right labeled icon button"><i class="edit icon"></i> Редагувати </button>
+                </a>
+                <a href="{{ route('blog.delete', ['id' => $post->id]) }}" style="display: block; float: right;">
+                    <button class="ui right labeled icon button"><i class="delete icon"></i> Видалити </button>
+                </a>
+            @endif
+
             <h2 class="ui header"><a href="#">{{ $post->title }}</a></h2>
 
             <p>{!! $post->body !!}</p>

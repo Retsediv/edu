@@ -40,6 +40,9 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director']], functi
     Route::get('/blog', ['as' => 'blog', 'uses' => 'BlogController@index']);
     Route::get('/blog/create', ['as' => 'blog.create', 'uses' => 'BlogController@create']);
     Route::post('/blog/create', ['as' => 'blog.create', 'uses' => 'BlogController@postCreate']);
+    Route::get('/blog/edit/{id}', ['as' => 'blog.edit', 'uses' => 'BlogController@edit']);
+    Route::post('/blog/edit/{id}', ['as' => 'blog.edit', 'uses' => 'BlogController@update']);
+    Route::get('/blog/delete/{id}', ['as' => 'blog.delete', 'uses' => 'BlogController@delete']);
     Route::get('/blog/{id}', ['as' => 'blog.page', 'uses' => 'BlogController@showPost']);
     Route::get('/api/blog/all', 'BlogController@getAll');
 

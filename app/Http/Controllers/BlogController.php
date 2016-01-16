@@ -17,18 +17,18 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('page.blog');
+        return view('blog.index');
     }
 
     public function showPost($id)
     {
         $post = Blog::find($id);
-        return view('page.blog-post', ['post' => $post]);
+        return view('blog.post', ['post' => $post]);
     }
 
     public function create()
     {
-        return view('page.blog-create');
+        return view('blog.create');
     }
 
     public function postCreate(Request $request)
@@ -41,6 +41,32 @@ class BlogController extends Controller
 
         flash()->success('Ви успішно добавили нову статтю');
         return redirect(route('blog'));
+    }
+
+    public function delete($id)
+    {
+        $post = Blog::find($id);
+        $post->delete();
+
+        flash()->success('Ви успішно видалили цю статтю.');
+        return redirect(route('blog'));
+    }
+
+    public function edit($id){
+        $post = Blog::findOrFail($id);
+
+        return view('blog.edit', ['post' => $post]);
+    }
+
+    public function update($post, Request $request)
+    {
+        $post = Blog::find($post);
+
+        $post->fill($request->all());
+        $post->save();
+
+        flash()->success('Ви успішно змінили статтю!');
+        return redirect(route('blog.page', ['id' => $post->id]));
     }
 
 
