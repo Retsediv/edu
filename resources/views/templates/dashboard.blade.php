@@ -32,9 +32,6 @@
 <!-- ./wrapper -->
 @include('templates.footer')
 
-<script src="{{ URL::asset("js/vue/vue.js") }} "></script>
-<script src="{{ URL::asset('js/vue/vue-resource.js') }} "></script>
-
 <!-- JS SCRIPTS -->
 <script src="{{ URL::asset('/js/main.js') }}"></script>
 

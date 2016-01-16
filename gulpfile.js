@@ -15,6 +15,8 @@ elixir(function(mix) {
     mix.scripts([
         'vendor/jquery-2.1.4.min.js',
         'vendor/moment.min.js',
+        'vendor/vue.js',
+        'vendor/vue-resource.js',
         'vendor/popup.min.js',
         'vendor/semantic.min.js',
         'component/task.js',
