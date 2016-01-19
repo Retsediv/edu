@@ -1,14 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Test;
 use App\Models\TestQuestion;
 use App\Models\TestQuestionAnswer;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
 class PollController extends Controller
 {
@@ -17,10 +14,8 @@ class PollController extends Controller
      */
     public function index()
     {
-
         $tests = $this->getAllTests();
         return view('poll.index', ['tests' => $tests]);
-
     }
 
     /**
@@ -29,7 +24,8 @@ class PollController extends Controller
      * @param $id
      * @return \Illuminate\View\View
      */
-    public function getTest($id){
+    public function getTest($id)
+    {
 
         return view('poll.get', ['id' => $id]);
     }
@@ -46,6 +42,7 @@ class PollController extends Controller
      * Store a new test
      *
      * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -58,7 +55,7 @@ class PollController extends Controller
         ]);
         $request->user()->tests()->save($test);
 
-        foreach($request->questions as $question){
+        foreach ($request->questions as $question) {
             $quest = new TestQuestion([
                 'body' => $question['name']
             ]);
@@ -88,7 +85,8 @@ class PollController extends Controller
     /**
      * @return all tests(polls)
      */
-    public function getAllTests(){
+    public function getAllTests()
+    {
         $tests = Test::allowed()->get();
         return $tests;
     }
@@ -99,7 +97,8 @@ class PollController extends Controller
      * @param $id
      * @return Test
      */
-    public function getQuestions($id){
+    public function getQuestions($id)
+    {
         $test = Test::find($id);
 
         $questions = $test->questions()->get()->toArray();
@@ -107,7 +106,7 @@ class PollController extends Controller
         $perPage = $test->per_page;
         shuffle($questions);
 
-        $questions = array_slice($questions,0,$perPage);
+        $questions = array_slice($questions, 0, $perPage);
 
         return $questions;
     }
@@ -117,7 +116,8 @@ class PollController extends Controller
      * @param $id
      * @return TestQuestion
      */
-    public function getAnswersToQuestion($id){
+    public function getAnswersToQuestion($id)
+    {
         $answers = new TestQuestion();
         $answers = $answers->find($id)->answers()->get();
         return $answers;
@@ -136,7 +136,7 @@ class PollController extends Controller
         $test = Test::find($id);
         $questions = $test->questions()->get();
 
-        foreach($questions as $question){
+        foreach ($questions as $question) {
             $answers[$question->id] = $question->answers()->get()->toArray();
         }
 
