@@ -4,7 +4,17 @@
 
 @section('page')
     <div class="container ui">
-        <a href="{{ route('courses.create') }}">Добавити</a>
+
+        @allowed('course.create')
+
+        <a href="{{ URL::route('courses.create') }}" style="color: #fff;">
+            <button class="full-width-btn ui button margin {{ getRandomColor() }}">
+                Добавити новий курс
+            </button>
+        </a>
+
+        @endallowed
+
 
         <div class="ui special cards three column grid" style="padding: 0 35px;">
         @foreach($courses as $course)

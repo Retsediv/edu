@@ -16,8 +16,8 @@
 
         @allowed('blog.create')
 
-        <a href="{{ URL::route('blog.create') }}" style="color: #fff;">
-            <button class="positive ui button" style="width: 100%; display: block; margin: 5px 0 0 0;">
+        <a href="{{ URL::route('blog.create') }}" style="color: #fff;" class="margin-bottom">
+            <button class="positive ui button full-width-btn {{ getRandomColor() }}">
                 Добавити нову статтю
             </button>
         </a>

@@ -140,6 +140,10 @@ i#done, .fa-remove:hover {
     margin-bottom: 25px;
 }
 
+.margin {
+    margin: 10px 0;
+}
+
 .padding-top {
     padding-top: 25px;
 }
@@ -150,4 +154,10 @@ i#done, .fa-remove:hover {
 
 .ui.message {
     font-weight: bold;
+}
+
+.full-width-btn {
+    width: 100%;
+    display: block;
+    margin-top: 5px;
 }
