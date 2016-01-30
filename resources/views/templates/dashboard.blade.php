@@ -35,13 +35,6 @@
 <!-- JS SCRIPTS -->
 <script src="{{ URL::asset('/js/main.js') }}"></script>
 
-<script src="{{ URL::asset('/js/blog.js') }}"></script>
-
-<script src="{{ URL::asset('/js/poll.js') }}"></script>
-
-<script src="{{ URL::asset('/js/pollCreate.js') }}"></script>
-
-
 <script>
     $(document).ready(function () {
 

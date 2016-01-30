@@ -20,6 +20,9 @@ elixir(function(mix) {
         'vendor/popup.min.js',
         'vendor/semantic.min.js',
         'component/task.js',
+        'component/blog.js',
+        'component/poll.js',
+        'component/pollCreate.js',
         'main.js',
         'vendor/tinymce.min.js'
     ], 'public/js/main.js');
