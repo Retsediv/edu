@@ -39,6 +39,14 @@ class Course extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany(\App\Models\User::class, 'course_member', 'course_id', 'user_id');
+    }
+
+    /**
      * @param Course $course
      * @return string
      */

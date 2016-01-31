@@ -13,6 +13,12 @@
                        href="{{ route('lesson.get', ['id' => $lesson->id]) }}"> {{ $lesson->title }}
                     </a>
                     @endforeach
+
+                    @if($user->isAuthor($course))
+                        <a class="item"
+                           href="{{ route('mark.show', ['CourseId' => $course->id]) }}">Поставити оцінку
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="thirteen wide stretched column">

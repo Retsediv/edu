@@ -107,6 +107,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     }
 
     /**
+     * @return mixed
+     */
+    public function getFullName()
+    {
+        return $this->name + ' ' + $this->last_name;
+    }
+
+    /**
      * @param $id
      * @return string
      */
