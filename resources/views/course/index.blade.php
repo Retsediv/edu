@@ -8,7 +8,7 @@
         @allowed('course.create')
 
         <a href="{{ URL::route('courses.create') }}" style="color: #fff;">
-            <button class="full-width-btn ui button margin {{ getRandomColor() }}">
+            <button class="full-width-btn ui button margin {{ getRandomColor() }}" style="margin: 15px 0">
                 Добавити новий курс
             </button>
         </a>
@@ -70,7 +70,7 @@
                 </div>
                 @if($user->isAuthor($course))
                     <a href="{{ route('lesson.create', ['courseId' => $course->id]) }}">
-                        <div class="ui bottom attached button {{ getRandomColor() }}"><i class="add icon"></i>Добавити урок</div>
+                        <div class="ui bottom attached button black"><i class="add icon"></i>Добавити урок</div>
                     </a>
                 @endif
             </div>

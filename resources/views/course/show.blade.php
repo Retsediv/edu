@@ -17,7 +17,14 @@
             </div>
             <div class="thirteen wide stretched column">
                 <div class="ui segment">
-                    Це перша сторінка. Тут не буде уроків, а лише ваша статистика.(Dev)
+                    <h2>Ваші оцінки:</h2>
+
+                    @foreach($marks as $mark)
+                        <div style="margin: 5px">
+                            <p style="margin: 0">Оцінка за урок: {{ $mark->lesson->title }}: {{ $mark->mark }}%</p>
+                            <small>{{ $mark->description }}</small>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

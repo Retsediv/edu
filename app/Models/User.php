@@ -101,6 +101,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Models\Test');
     }
 
+    public function marks()
+    {
+        return $this->hasMany(\App\Models\Mark::class);
+    }
+
     /**
      * @param $id
      * @return string

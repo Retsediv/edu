@@ -34,6 +34,7 @@
 
 <!-- JS SCRIPTS -->
 <script src="{{ URL::asset('/js/main.js') }}"></script>
+<script src="{{ URL::asset('/js/poll.js') }}"></script>
 
 <script>
     $(document).ready(function () {
@@ -80,6 +81,12 @@
         });
 
         $('.ui.dropdown').dropdown();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     });
 
 

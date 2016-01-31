@@ -83,7 +83,9 @@ class CoursesController extends Controller
         $course = Course::find($id);
         $lessons = $course->lessons()->get();
 
-        return view('course.show', ['course' => $course, 'lessons' => $lessons]);
+        $marks = Auth::user()->marks;
+
+        return view('course.show', ['course' => $course, 'lessons' => $lessons, 'marks' => $marks]);
     }
 
     /**

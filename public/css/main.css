@@ -161,3 +161,9 @@ i#done, .fa-remove:hover {
     display: block;
     margin-top: 5px;
 }
+
+.no-border-radius {
+    -webkit-border-radius:0 !important;
+    -moz-border-radius:0 !important;
+    border-radius:0 !important;
+}

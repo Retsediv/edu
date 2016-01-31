@@ -60,17 +60,21 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $currentLesson = CourseLesson::find($id);
-        $courseId = $currentLesson->course()->get()->first()->id;
+        $test = $currentLesson->test_id ? Test::findOrFail($currentLesson->test_id): '';
 
+        $courseId = $currentLesson->course->id;
         $lessons = CourseLesson::where('course_id', '=', $courseId)->get();
 
-        return view('course.lesson.show',  ['currentLesson' => $currentLesson, 'lessons' => $lessons]);
+        return view('course.lesson.show',  [
+            'currentLesson' => $currentLesson,
+            'lessons' => $lessons,
+            'test' => $test]);
     }
 
     /**

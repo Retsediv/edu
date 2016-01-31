@@ -11,7 +11,7 @@
             <div class="bar"></div>
         </div>
         <input type="hidden" id="test-id" value="{{ $id }}">
-
+        <input type="hidden" id="lesson-id" value="{{ $lessonId }}">
 
         <div class="question">
             <h3>@{{ currentQuestion.body }}</h3>

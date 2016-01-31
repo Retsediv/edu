@@ -98,6 +98,15 @@ new Vue({
                     " Кількість правильних відповідей - " + this.good + "\n" +
                     " Кількість неправильних відповідей - " + this.bad + "\n" +
                     " У процентному співвідношення правильних відповідей - " + (this.good/(this.good+this.bad))*100  + "%");
+
+                // Відправляємо запит на сервер для зберігання оцінки
+                var lessonId = $('#lesson-id').val(),
+                    mark = (this.good / (this.good+this.bad)) * 100;
+
+                if (lessonId > 0){
+                    this.$http.post("/api/mark/" + lessonId + "/" + mark);
+                    console.log(lessonId);
+                }
             }
         },
 

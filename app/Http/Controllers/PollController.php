@@ -22,12 +22,12 @@ class PollController extends Controller
      * Testing view(page)
      *
      * @param $id
+     * @param null $lessonId
      * @return \Illuminate\View\View
      */
-    public function getTest($id)
+    public function getTest($id, $lessonId = null)
     {
-
-        return view('poll.get', ['id' => $id]);
+        return view('poll.get', ['id' => $id, 'lessonId' => $lessonId]);
     }
 
     /**
