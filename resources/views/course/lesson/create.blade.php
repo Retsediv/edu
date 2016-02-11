@@ -21,6 +21,13 @@
                 </div>
 
                 <div class="field ui column wide fifteen" style="margin: 0;">
+                    <label for="published_at" class="col-sm-2 control-label">Дата публікації</label>
+
+                    <input name="published_at" class="form-control datepicker" id="#datepicker" placeholder="Дата публікації..."
+                           type="text" required="required">
+                </div>
+
+                <div class="field ui column wide fifteen" style="margin: 0;">
                     <label for="body" class="col-sm-2 control-label">Детальна інформація(д/з)</label>
                     <textarea id="wswj" name="body"></textarea>
                 </div>

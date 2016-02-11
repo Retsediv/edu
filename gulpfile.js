@@ -22,13 +22,18 @@ elixir(function(mix) {
         'component/task.js',
         'component/blog.js',
         'component/pollCreate.js',
-        'main.js',
-        'vendor/tinymce.min.js'
+        'vendor/tinymce.min.js',
+        'vendor/picker.js',
+        'vendor/picker.date.js',
+        'main.js'
     ], 'public/js/main.js');
 
     mix.styles([
         'vendor/popup.min.css',
         'vendor/semantic.min.css',
+        'vendor/classic.css',
+        'vendor/classic.date.css',
+        'vendor/rtl.css',
         'vendor/font-awesome.min.css'
     ], 'public/css/vendor.css');
 });

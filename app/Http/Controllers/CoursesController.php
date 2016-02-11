@@ -81,7 +81,11 @@ class CoursesController extends Controller
     public function show($id)
     {
         $course = Course::find($id);
-        $lessons = $course->lessons()->get();
+        if (Auth::user()->isAuthor($course)) {
+            $lessons = $course->lessons()->get();
+        } else {
+            $lessons = $course->lessons()->published()->get();
+        }
 
         $marks = Auth::user()->marks;
 

@@ -6,6 +6,7 @@ use App\Models\Course;
 use App\Models\CourseLesson;
 use App\Models\Test;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -46,12 +47,14 @@ class LessonController extends Controller
      */
     public function store(Request $request, $courseId)
     {
-        CourseLesson::create([
+        $lesson = new CourseLesson([
             'title' => $request->title,
             'body' => $request->body,
             'course_id' => $courseId,
             'test_id' => $request->test_id
         ]);
+        $lesson->setPublishedAtAttribute(Carbon::parse($request->published_at_submit)->format('Y-m-d'));
+        $lesson->save();
 
         flash()->success('Ви успішно добавили новий урок!');
         return redirect(route('courses.get', ['id' => $courseId]));
@@ -68,8 +71,13 @@ class LessonController extends Controller
         $currentLesson = CourseLesson::find($id);
         $test = $currentLesson->test_id ? Test::findOrFail($currentLesson->test_id): '';
 
-        $courseId = $currentLesson->course->id;
-        $lessons = CourseLesson::where('course_id', '=', $courseId)->get();
+        $course = $currentLesson->course;
+        $courseId = $course->id;
+        if (Auth::user()->isAuthor($course)) {
+            $lessons = CourseLesson::where('course_id', '=', $courseId)->get();
+        } else {
+            $lessons = CourseLesson::where('course_id', '=', $courseId)->published()->get();
+        }
 
         return view('course.lesson.show',  [
             'currentLesson' => $currentLesson,
