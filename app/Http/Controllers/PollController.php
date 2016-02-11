@@ -25,10 +25,11 @@ class PollController extends Controller
      * @param null $lessonId
      * @return \Illuminate\View\View
      */
-    public function getTest($id, $lessonId = null)
+    public function getTest($id, $lessonId = -1)
     {
         return view('poll.get', ['id' => $id, 'lessonId' => $lessonId]);
     }
+
 
     /**
      * Create a new test here

@@ -7,9 +7,9 @@
 
         <div class="poll-block" v-bind:class="showPoll ? 'show' : 'hide'" >
 
-        <div class="ui olive progress">
-            <div class="bar"></div>
-        </div>
+        {{--<div class="ui olive progress">--}}
+            {{--<div class="bar"></div>--}}
+        {{--</div>--}}
         <input type="hidden" id="test-id" value="{{ $id }}">
         <input type="hidden" id="lesson-id" value="{{ $lessonId }}">
 
