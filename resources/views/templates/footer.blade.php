@@ -1,14 +1,18 @@
 <footer class="main-footer">
     <div class="ui inverted vertical footer segment">
         <div class="ui center aligned container">
-            <img src="http://semantic-ui.com/examples/assets/images/logo.png" class="ui centered mini image">
+            <img src="{{ Url::asset("images/logo.png") }}" style="float: right; width: 260px;" class="ui centered mini image">
 
-            <div class="ui horizontal inverted small divided link list">
-                <a class="item" href="#">Site Map</a>
-                <a class="item" href="#">Contact Us</a>
-                <a class="item" href="#">Terms and Conditions</a>
-                <a class="item" href="#">Privacy Policy</a>
+            <div class="ui horizontal inverted small divided link list" style="float:left;">
+                <a class="item" href="#"><h3>Globos</h3></a>
+                <div>
+                    <p>За детальнішою інформацією та технічною підтримкую звертайтеся за адресою:
+                        <br />
+                        retsediv1@gmail.com</p>
+                </div>
             </div>
+
+            <div style="clear: both;"></div>
         </div>
     </div>
 </footer>

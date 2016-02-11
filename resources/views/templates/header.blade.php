@@ -1,13 +1,9 @@
 <div class="ui menu inverted">
-    <a class="home item"><b>Education</b>UA</a>
+    <a href="{{ URL::route('home') }}" target="_blank" class="home item"><b>GLOBOS</b>UA</a>
 
     <div class="right menu">
         <a class="item">
-            <i class="announcement icon"></i> Notification
-        </a>
-
-        <a class="item">
-            <i class="mail icon"></i> Messages
+            <i class="mail icon"></i> Повідомлення
         </a>
 
         <a class="item" id="user-popup">

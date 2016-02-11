@@ -96,7 +96,7 @@ p {
     display: inline-block;
 }
 select, select option  {
-    background: transparent none repeat scroll 0% 0% !important;
+    background: #25343F none repeat scroll 0% 0% !important;
     border: 1px solid rgb(160, 179, 176);
     width: 100%;
     font-size: 22px;

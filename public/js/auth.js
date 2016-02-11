@@ -49,6 +49,8 @@ $(document).ready(function(){
             }
         }
 
+        label.addClass('active highlight');
+
     });
 
     /* End script for reg. form  */

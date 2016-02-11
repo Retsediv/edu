@@ -4,7 +4,7 @@
 
 @section('sidebar_menu')
     <div class="ui vertical menu blog">
-        <h3 class="ui center aligned header">Категорії</h3>
+        <h3 class="ui center aligned header" style="margin: 10px 0;">Категорії</h3>
         <a class="item {{ Html::is_active('/') }}" href="{{ URL::route('home') }}">
             <i class="home icon"></i> Головна
         </a>
@@ -17,7 +17,7 @@
         @allowed('blog.create')
 
         <a href="{{ URL::route('blog.create') }}" style="color: #fff;" class="margin-bottom">
-            <button class="positive ui button full-width-btn {{ getRandomColor() }}">
+            <button class="ui button full-width-btn {{ getRandomColor() }}" style="margin-top: 10px;">
                 Добавити нову статтю
             </button>
         </a>

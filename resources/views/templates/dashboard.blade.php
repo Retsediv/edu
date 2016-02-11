@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Освітній майданчий</title>
+    <title>Освітня платформа Globos</title>
     <meta name="csrf-token" id="token" content="<?php echo csrf_token(); ?>">
 
     <!-- Tell the browser to be responsive to screen width -->

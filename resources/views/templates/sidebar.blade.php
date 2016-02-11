@@ -14,7 +14,7 @@
 
             <div class="item user-info-sidebar">
                 <div class="user-image">
-                    <img src="http://placehold.it/175x150" class="img-circle" alt="User Image">
+                    <img src="http://semantic-ui.com/images/avatar2/large/matthew.png" class="img-circle" alt="Зображення користувача" style="width: 175px;">
                 </div>
 
                 <p class="text-center text-bold">{{ $user->name  }} {{ $user->last_name }}</p>
@@ -42,21 +42,18 @@
                 <i class="book icon"></i> Блог
             </a>
 
-            <div class="ui dropdown item">
-                DropDown
-                <i class="dropdown icon"></i>
+            {{--<div class="ui dropdown item">--}}
+                {{--DropDown--}}
+                {{--<i class="dropdown icon"></i>--}}
 
-                <div class="menu">
-                    <a class="item"><i class="edit icon"></i>Переглянути</a>
-                    <a class="item"><i class="globe icon"></i>Власні курси</a>
-                    <a class="item"><i class="settings icon"></i> Account Settings</a>
-                </div>
-            </div>
+                {{--<div class="menu">--}}
+                    {{--<a class="item"><i class="edit icon"></i>Переглянути</a>--}}
+                    {{--<a class="item"><i class="globe icon"></i>Власні курси</a>--}}
+                    {{--<a class="item"><i class="settings icon"></i> Account Settings</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
         </div>
-
-
-
 
     </section>
     <!-- /.sidebar -->
