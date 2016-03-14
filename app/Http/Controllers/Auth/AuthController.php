@@ -6,6 +6,7 @@ use App\Models\Area;
 use App\Models\Region;
 use App\Models\Role;
 use App\Models\RoleUser;
+use App\Models\School;
 use App\Models\User;
 use App\Models\Town;
 use Illuminate\Database\Eloquent\Collection;
@@ -32,11 +33,9 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
 
-
     /**
      * Create a new authentication controller instance.
      *
-     * @return void
      */
     public function __construct()
     {
@@ -55,44 +54,50 @@ class AuthController extends Controller
     }
 
     /**
-     * @post region_id
+     * @param $regionId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getArea()
+    public function getAreas($regionId)
     {
-        $region_id = $_POST['region_id'];
-
         $region = new Region();
-        $areas = $region::find($region_id)->areas;
+        $areas = $region::find($regionId)->areas;
 
         return Response::json($areas);
     }
 
     /**
-     * @post $region_id
+     * @param $areaId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getTown()
+    public function getTowns($areaId)
     {
-        $area_id = $_POST['area_id'];
-
         $towns = new Area();
-        $towns = $towns::find($area_id)->towns;
+        $towns = $towns::find($areaId)->towns;
 
         return Response::json($towns);
     }
 
     /**
-     * @post $town_id
+     * @param $townId
      * @return \Illuminate\Http\JsonResponse
      */
-    public function getSchool()
+    public function getSchools($townId)
     {
-        $town_id = $_POST['town_id'];
         $schools = new Town();
-        $schools = $schools::find($town_id)->schools;
+        $schools = $schools::find($townId)->schools;
 
         return Response::json($schools);
+    }
+
+    /**
+     * @param $schoolId
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getClasses($schoolId)
+    {
+        $classes = School::findOrFail($schoolId)->classes;
+
+        return Response::json($classes);
     }
 
     /**
@@ -138,16 +143,18 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'school_id' => $data['school'],
-            'class' => $data['class']
+            'class_id' => $data['class']
         ]);
 
+        $this->createRoleUser($data);
 
+        return $user;
     }
 
     /**

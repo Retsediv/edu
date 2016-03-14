@@ -18,7 +18,7 @@ class EventsController extends Controller
     {
         $events = new Event();
 
-        $school_id = $request->user()->userClass->school->id;
+        $school_id = $request->user()->school->id;
         $events = $events->getEventsBySchool($school_id);
 
         return view('page.events', ['events' => $events]);

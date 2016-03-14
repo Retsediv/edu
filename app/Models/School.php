@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Classes;
 use Illuminate\Database\Eloquent\Model;
 
 
@@ -14,6 +15,11 @@ class School extends Model
     public function schoolTown()
     {
         return $this->belongsTo('App\Models\Town');
+    }
+
+    public function classes()
+    {
+        return $this->hasMany(Classes::class);
     }
 
 }

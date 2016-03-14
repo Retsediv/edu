@@ -61,35 +61,46 @@ $(document).ready(function(){
     });
 
     $('select#region').change(function(){
+        var region_id = $(this).val();
         $.ajax({
-            url: "/auth/get/area",
+            url: "/api/area/get/" + region_id,  // /{regionId
             cache: false,
-            data: { region_id: $(this).val() },
-            type: "POST",
+            type: "GET",
 
             success: function(objects) { insertItems('select#area', objects) }
         });
     });
 
     $('select#area').change(function(){
+        var area_id = $(this).val();
         $.ajax({
-            url: "/auth/get/town",
+            url: "/api/town/get/" + area_id,
             cache: false,
-            data: { area_id: $(this).val() },
-            type: "POST",
+            type: "GET",
 
             success: function(objects) { insertItems('select#town', objects) }
         });
     });
 
     $('select#town').change(function(){
+        var town_id = $(this).val();
         $.ajax({
-            url: "/auth/get/school",
+            url: "/api/school/get/" + town_id,
             cache: false,
-            data: { town_id: $(this).val() },
-            type: "POST",
+            type: "GET",
 
             success: function(objects) { insertItems('select#school', objects) }
+        });
+    });
+
+    $('select#school').change(function(){
+        var school_id = $(this).val();
+        $.ajax({
+            url: "/api/class/get/" + school_id,
+            cache: false,
+            type: "GET",
+
+            success: function(objects) { insertItems('select#class', objects); console.log(objects) }
         });
     });
 
@@ -100,6 +111,8 @@ $(document).ready(function(){
             list += '<option value="' + items[i].id + '">' + items[i].name + '</option>';
         }
         $(where).html(list);
+
+
     }
 });
 

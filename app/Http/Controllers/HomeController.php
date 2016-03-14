@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         $user = $request->user();
         $tasks = $user->tasks;
-        $school_id = $user->userClass->school->id;
+        $school_id = $user->school->id;
 
         $events = new Event();
         $events = $events->getEventsBySchool($school_id);

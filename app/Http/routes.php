@@ -88,9 +88,11 @@ Route::group(['namespace' => 'Auth'], function () {
 /* (need fix) */
 Route::group(['namespace' => 'Auth'], function () {
 
-    Route::post('auth/get/area', 'AuthController@getArea');
-    Route::post('auth/get/town', 'AuthController@getTown');
-    Route::post('auth/get/school', 'AuthController@getSchool');
+
+    Route::get('api/area/get/{regionId}', 'AuthController@getAreas');
+    Route::get('api/town/get/{areaId}', 'AuthController@getTowns');
+    Route::get('api/school/get/{townId}', 'AuthController@getSchools');
+    Route::get('api/class/get/{schoolId}', 'AuthController@getClasses');
 
 });
 

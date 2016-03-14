@@ -62,21 +62,21 @@
         <span class="field-desc">
             З якого ви міста/села?
         </span>
-        <select name="town" id="town" type="select" value="{{ old('town') }}" required="required">        </select>
+        <select name="town" id="town" type="select" value="{{ old('town') }}" required="required"></select>
     </div>
 
     <div class="field-wrap">
         <span class="field-desc">
             З якого ви навчального закладу?
         </span>
-        <select name="school" id="school" type="select" value="{{ old('school') }}" required="required">        </select>
+        <select name="school" id="school" type="select" value="{{ old('school') }}" required="required"></select>
     </div>
 
     <div class="field-wrap">
         <label>
-            В якому класі ви вчетесь
+            В якому класі ви навчаєтеся?
         </label>
-        <input name="class" type="text"/>
+        <select name="class" id="class" type="select" value="{{ old('class') }}" required="required"></select>
     </div>
 
     <div class="field-wrap">
