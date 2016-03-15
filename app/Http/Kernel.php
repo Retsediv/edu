@@ -29,6 +29,7 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'moderated' => \App\Http\Middleware\CheckIsUserModerated::class,
         'role' => \App\Http\Middleware\ChekRoleAndRedirect::class,
         'rbac' => SmartCrowd\Rbac\Middleware\RbacMiddleware::class,
     ];

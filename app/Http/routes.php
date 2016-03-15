@@ -1,7 +1,7 @@
 <?php
 
 /* DASHBOARD */
-Route::group(['middleware' => ['auth', 'role:teacher,student,director']], function () {
+Route::group(['middleware' => ['auth', 'role:teacher,student,director', 'moderated']], function () {
 
     /* Home page */
     Route::get('/', ['as' => 'home', 'uses' => 'HomeController@index']);
