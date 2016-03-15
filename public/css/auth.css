@@ -223,4 +223,9 @@ textarea {
     margin: 0;
 }
 
+.auth-error {
+    color: #fff;
+    font-size: 18px;
+}
+
 /* -- END MAIN REGISTRATION/LOGIN FORM -- */

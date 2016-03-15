@@ -2,8 +2,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Освітня платформа Globos</title>
+    <title>Globos | Українська платформа дистанційного навчання</title>
     <meta name="csrf-token" id="token" content="<?php echo csrf_token(); ?>">
+
+    <meta name="author" content="Andrij Zhuravchak">
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

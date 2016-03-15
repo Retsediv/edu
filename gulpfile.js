@@ -12,6 +12,13 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+    // Scripts and styles for auth page
+    mix.scripts([
+        'vendor/jquery-3.0.0.min.js',
+        'component/auth.js',
+    ], 'public/js/auth.js');
+
+    // Main scripts and styles
     mix.scripts([
         'vendor/jquery-2.1.4.min.js',
         'vendor/moment.min.js',

@@ -73,9 +73,9 @@
     </div>
 
     <div class="field-wrap">
-        <label>
+        <span class="field-desc">
             В якому класі ви навчаєтеся?
-        </label>
+        </span>
         <select name="class" id="class" type="select" value="{{ old('class') }}" required="required"></select>
     </div>
 
