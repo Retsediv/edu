@@ -15,7 +15,8 @@ class CheckIsUserModerated
      */
     public function handle($request, Closure $next)
     {
-        if($request->user()->is_moderated){
+        $user = $request->user();
+        if($user->is_moderated || $user->roles()->first()->role_slug == "student"){
             return $next($request);
         }
 

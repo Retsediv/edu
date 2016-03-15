@@ -42,6 +42,16 @@
                 <i class="book icon"></i> Блог
             </a>
 
+
+            {{-- If user is director --}}
+            @if($user->roles()->first()->role_slug == "director")
+                <br />
+
+                <a class="item {{ Html::is_active('timetable') }}" href="{{ URL::route('timetable') }}">
+                    <i class="table icon"></i> Модерування учасників
+                </a>
+            @endif
+
             {{--<div class="ui dropdown item">--}}
                 {{--DropDown--}}
                 {{--<i class="dropdown icon"></i>--}}

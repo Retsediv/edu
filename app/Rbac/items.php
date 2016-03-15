@@ -12,6 +12,13 @@ Rbac::role('teacher', [
     'course.create'
 ]);
 
+Rbac::role('director', [
+    'event.create',
+    'blog.create',
+    'test.create',
+    'course.create'
+]);
+
 /*
  * Describe you permissions here.
  *
