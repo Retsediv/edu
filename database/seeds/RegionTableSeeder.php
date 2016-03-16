@@ -10,7 +10,7 @@ class RegionTableSeeder extends Seeder
     {
         DB::table('regions')->delete();
 
-        $regions = api('database.getRegions', [
+        $regions = $this->api('database.getRegions', [
             'country_id'    =>  2, // Ukraine
         ]);
 
@@ -19,7 +19,7 @@ class RegionTableSeeder extends Seeder
         }
     }
 
-    function api($method, $params = [])
+    public function api($method, $params = [])
     {
         $url = 'https://api.vk.com/method/' . $method . '?' . http_build_query($params);
         $response = file_get_contents($url);

@@ -10,17 +10,17 @@ class TownAndAreasTableSeeder extends Seeder
 
     public function run()
     {
-        ini_set('max_execution_time', 300); //300 seconds = 5 minutes
+        ini_set('max_execution_time', 0); //300 seconds = 5 minutes
 
         DB::table('areas')->delete();
         DB::table('towns')->delete();
 
-        $regions = api('database.getRegions', [
+        $regions = $this->api('database.getRegions', [
             'country_id'    =>  2,
         ]);
 
         foreach($regions['response'] as $region){
-            $towns = api('database.getCities', [
+            $towns = $this->api('database.getCities', [
                 'country_id'    =>  2,
                 'region_id' => $region['region_id'],
                 'count'     => 1000
@@ -44,7 +44,7 @@ class TownAndAreasTableSeeder extends Seeder
 
     }
 
-    function api($method, $params = [])
+    public function api($method, $params = [])
     {
         $url = 'https://api.vk.com/method/' . $method . '?' . http_build_query($params);
         $response = file_get_contents($url);
