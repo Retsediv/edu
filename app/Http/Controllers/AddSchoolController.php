@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Requests\AddSchoolFormRequest;
 use App\Models\Region;
 use App\Models\Role;
+use App\Models\School;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class AddSchoolController extends Controller
@@ -25,13 +26,26 @@ class AddSchoolController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Store a new school.
      *
+     * @param AddSchoolFormRequest $request
      * @return Response
      */
-    public function addSchool()
+    public function addSchool(AddSchoolFormRequest $request)
     {
-        //
+        $school = School::create([
+            'name' => $request->school,
+            'town_id' => $request->town
+        ]);
+
+        $user = new AuthController();
+
+        $data = $request->all();
+        $data['class'] = -1;
+        $data['school'] = $school->id;
+        $user->create($data);
+
+        return redirect(route('home'));
     }
 
 

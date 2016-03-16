@@ -82,13 +82,6 @@
 
         <div class="field-wrap">
             <label>
-                В якому класі ви вчетесь
-            </label>
-            <input name="class" type="text"/>
-        </div>
-
-        <div class="field-wrap">
-            <label>
                 Пароль<span class="req">*</span>
             </label>
             <input name="password" type="password" required="required" />

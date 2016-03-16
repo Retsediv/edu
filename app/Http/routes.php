@@ -65,6 +65,11 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director', 'moderat
     Route::post('/courses/lesson/{id}/edit', ['as' => 'lesson.edit', 'uses' => 'LessonController@update']);
     Route::get('/courses/lesson/{id}/delete', ['as' => 'lesson.delete', 'uses' => 'LessonController@destroy']);
     Route::get('/courses/lesson/{id}', ['as' => 'lesson.get', 'uses' => 'LessonController@show']);
+
+    Route::group(['middleware' => ['role:director']], function () {
+        Route::get('/admin/users', ['as' => 'admin.users', 'uses' => 'AdministratorController@getUsers']);
+    });
+
 });
 
 /* AUTHENTIFICATION */

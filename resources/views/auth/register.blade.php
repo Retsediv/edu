@@ -76,7 +76,7 @@
         <span class="field-desc">
             В якому класі ви навчаєтеся?
         </span>
-        <select name="class" id="class" type="select" value="{{ old('class') }}" required="required"></select>
+        <select name="class" id="class" type="select" value="{{ old('class') }}"></select>
     </div>
 
     <div class="field-wrap">
