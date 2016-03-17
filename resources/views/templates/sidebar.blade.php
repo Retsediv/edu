@@ -47,7 +47,7 @@
             @if($user->roles()->first()->role_slug == "director")
                 <br />
 
-                <a class="item {{ Html::is_active('admin.users') }}" href="{{ URL::route('admin.users') }}">
+                <a class="item {{ Html::is_active('/admin/users') }}" href="{{ URL::route('admin.users') }}">
                     <i class="table icon"></i> Модерування учасників
                 </a>
             @endif

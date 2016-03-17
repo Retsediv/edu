@@ -67,7 +67,8 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director', 'moderat
     Route::get('/courses/lesson/{id}', ['as' => 'lesson.get', 'uses' => 'LessonController@show']);
 
     Route::group(['middleware' => ['role:director']], function () {
-        Route::get('/admin/users', ['as' => 'admin.users', 'uses' => 'AdministratorController@getUsers']);
+        Route::get('/admin/users', ['as' => 'admin.users', 'uses' => 'AdministratorController@index']);
+        Route::get('/api/admin/users', ['as' => 'api.admin.users', 'uses' => 'AdministratorController@getUsers']);
     });
 
 });
@@ -101,6 +102,6 @@ Route::group(['namespace' => 'Auth'], function () {
 
 });
 
-/* ADD A NEW SCHOOL (Alpha version) */
+/* ADD A NEW SCHOOL */
 Route::get('addschool', ['as' => 'addschool', 'uses' => 'AddSchoolController@index']);
 Route::post('addschool', ['as' => 'addschool', 'uses' => 'AddSchoolController@addSchool']);
