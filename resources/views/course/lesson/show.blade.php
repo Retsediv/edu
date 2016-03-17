@@ -34,8 +34,6 @@
                                 Тест, який необхідно пройти:
                                 <a href="{{ route('poll.one', ['id' => $test->id, 'lessonId' => $currentLesson->id]) }}">{{ $test->title }}</a>
                             </div>
-
-                            Ваша оцінка за це тестування:
                         </div>
                     @endif
 

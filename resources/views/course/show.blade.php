@@ -27,7 +27,11 @@
 
                     @foreach($marks as $mark)
                         <div style="margin: 5px">
-                            <p style="margin: 0">Оцінка за урок: {{ $mark->lesson->title }}: {{ $mark->mark }}%</p>
+                            <p style="margin: 0">Оцінка за урок: {{ $mark->lesson->title }}: {{ $mark->mark }}
+                            @if($mark->mark > 12)
+                                %
+                            @endif
+                            </p>
                             <small>{{ $mark->description }}</small>
                         </div>
                     @endforeach
