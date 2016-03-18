@@ -6,7 +6,7 @@
 <div class="container ui">
         <br>
         <table id="admin-user" class="ui compact celled definition table">
-            <thead>
+            <thead class="text-center">
             <tr>
                 <th></th>
                 <th v-on:click="sortBy('name')"><a href="#">Ім'я</a></th>
@@ -16,7 +16,7 @@
                 <th v-on:click="sortBy('is_moderated')"><a href="#">Промодерований</a></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
             <tr v-for="user in users | orderBy sortKey reverse">
                 <td class="collapsing">
                     <div class="ui fitted slider checkbox">
