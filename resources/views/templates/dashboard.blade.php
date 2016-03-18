@@ -38,6 +38,7 @@
 <script src="{{ URL::asset('/js/main.js') }}"></script>
 <script src="{{ URL::asset('/js/poll.js') }}"></script>
 <script src="{{ URL::asset('/js/admin-users.js') }}"></script>
+<script src="{{ URL::asset('/js/admin-classes.js') }}"></script>
 
 </body>
 </html>

@@ -67,8 +67,12 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director', 'moderat
     Route::get('/courses/lesson/{id}', ['as' => 'lesson.get', 'uses' => 'LessonController@show']);
 
     Route::group(['middleware' => ['role:director']], function () {
-        Route::get('/admin/users', ['as' => 'admin.users', 'uses' => 'AdministratorController@index']);
+        Route::get('/admin/users', ['as' => 'admin.users', 'uses' => 'AdministratorController@users']);
+        Route::get('/admin/classes', ['as' => 'admin.classes', 'uses' => 'AdministratorController@classes']);
         Route::get('/api/admin/users', ['as' => 'api.admin.users', 'uses' => 'AdministratorController@getUsers']);
+        Route::get('/api/admin/classes', ['as' => 'api.admin.classes', 'uses' => 'AdministratorController@getClasses']);
+        Route::post('/api/admin/classes/create', ['as' => 'api.admin.classes.create', 'uses' => 'AdministratorController@storeClass']);
+        Route::post('/api/admin/classes/delete', ['as' => 'api.admin.classes.delete', 'uses' => 'AdministratorController@deleteClass']);
     });
 
 });

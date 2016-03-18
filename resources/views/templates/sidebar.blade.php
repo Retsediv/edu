@@ -50,6 +50,10 @@
                 <a class="item {{ Html::is_active('/admin/users') }}" href="{{ URL::route('admin.users') }}">
                     <i class="table icon"></i> Модерування учасників
                 </a>
+
+                <a class="item {{ Html::is_active('/admin/classes') }}" href="{{ URL::route('admin.classes') }}">
+                    <i class="table icon"></i> Модерування класами
+                </a>
             @endif
 
             {{--<div class="ui dropdown item">--}}
