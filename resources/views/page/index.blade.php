@@ -6,7 +6,7 @@
 
 
         <!-- TO-DO LIST -->
-<section class="ui seven wide column segment piled load">
+<section class="ui eight wide column segment piled load">
     <h3 class="ui header">Список справ</h3>
 
     <div class="ui relaxed divided list todo-list" id="tasks">
@@ -28,7 +28,7 @@
     </div>
 
 
-    <button class="ui right plus icon button" style="float: right;"><a href="{{ route('tasks') }}">
+    <button class="ui eight plus icon button" style="float: right;"><a href="{{ route('tasks') }}">
             <i class="right arrow icon"></i>
             Добавити</a>
     </button>
@@ -51,9 +51,14 @@
 
         </div>
     @endforeach
-
-
 </section>
 
+<section class="ui sixteen wide column">
+    <div class="ui segment">
+        <h2>Ваша успішність</h2>
+
+        <canvas id="mark-chart" height="500" class="full-width"></canvas>
+    </div>
+</section>
 
 @stop

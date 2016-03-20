@@ -38,6 +38,7 @@ Route::group(['middleware' => ['auth', 'role:teacher,student,director', 'moderat
 
     /* Mark routes */
     Route::post('/api/mark/{lessonId}/{mark}', ['as' => 'mark.test', 'uses' => 'MarkController@forTest']);
+    Route::get('/api/mark/get', ['as' => 'mark.get', 'uses' => 'MarkController@getMarksDataset']);
     Route::get('/mark/{courseId}', ['as' => 'mark.show', 'uses' => 'MarkController@show']);
     Route::post('/mark/{courseId}', ['as' => 'mark.store', 'uses' => 'MarkController@store']);
 

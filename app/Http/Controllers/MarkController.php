@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Mark;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,6 +13,13 @@ use App\Http\Controllers\Controller;
 
 class MarkController extends Controller
 {
+
+    protected $user;
+
+    public function __construct(Request $request)
+    {
+        $this->user = $request->user();
+    }
     /**
      * Display a listing of the resource.
      *
@@ -64,5 +72,18 @@ class MarkController extends Controller
                 'description' => 'За проходження тестування за урок'
             ]);
         }
+    }
+
+    /**
+     * Api function to get all marks to current user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getMarksDataset(Request $request)
+    {
+        $marks = Mark::where('user_id', '=', $this->user->id)->get();
+
+        return response()->json($marks);
     }
 }

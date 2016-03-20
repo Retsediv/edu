@@ -120,7 +120,7 @@ new Vue({
 
                 // Відправляємо запит на сервер для зберігання оцінки
                 var lessonId = $('#lesson-id').val(),
-                    mark = (this.good / (this.good+this.bad)) * 100;
+                    mark = (this.good / (this.good+this.bad)) * 12;
 
                 if (lessonId > 0){
                     this.$http.post("/api/mark/" + lessonId + "/" + mark);

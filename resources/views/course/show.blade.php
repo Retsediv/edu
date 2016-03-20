@@ -22,8 +22,15 @@
                 </div>
             </div>
             <div class="thirteen wide stretched column">
+
                 <div class="ui segment">
-                    <h2>Ваші оцінки:</h2>
+                    <h2>Ваша успішність</h2>
+
+                    <canvas id="mark-chart" class="full-width"></canvas>
+                </div>
+
+                <div class="ui segment">
+                    <h2>Оцінки:</h2>
 
                     @foreach($marks as $mark)
                         <div style="margin: 5px">

@@ -9,8 +9,6 @@ class Mark extends Model
     protected $table = 'lesson_mark';
 
     protected $fillable = ['mark', 'user_id', 'lesson_id', 'description'];
-
-    public $timestamps = false;
     
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

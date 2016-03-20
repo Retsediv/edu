@@ -32,6 +32,8 @@ elixir(function(mix) {
         'vendor/tinymce.min.js',
         'vendor/picker.js',
         'vendor/picker.date.js',
+        'vendor/chart.min.js',
+        'component/chart.js',
         'main.js'
     ], 'public/js/main.js');
 
