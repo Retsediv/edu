@@ -25,6 +25,7 @@ new Vue({
         last: 0, // К-сть питань
         good: 0, // К-сть правильних відповідей
         bad: 0,  // К-сть неправильних відповідей
+        progress: 0, // Прогресс тестування (у процентах)
     },
 
     ready: function(){
@@ -56,6 +57,7 @@ new Vue({
 
             this.last = this.questions.length;
 
+            this.progress = 0;
         },
 
         accept: function () {
@@ -90,9 +92,26 @@ new Vue({
                 } else { // Перехід до іншого питання
                     accept.innerHTML = "Прийняти";
                     this.update();
+
+                    this.progress = this.progress  + ( (1 / this.last)  * 100 );
+                    $("#poll-progress-bar").progress({
+                        percent: this.progress,
+                        text: {
+                            active  : 'Питання №{value} із {total}',
+                        }
+                    });
+
                 }
             }
             else { // Питань вже не залишилось, підбиваємо підсумки
+
+                $("#poll-progress-bar").progress({
+                    percent: 100,
+                    text: {
+                        active  : 'Ви відповіли на усі запитання!'
+                    }
+                });
+
                 alert(
                     " Вітаємо з закінченням тестування! \n" +
                     " Кількість правильних відповідей - " + this.good + "\n" +

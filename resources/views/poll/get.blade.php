@@ -1,5 +1,5 @@
 @extends('templates.page')
-@section('page_title', 'Тестування триває. <small>(Не перезагружайте сторінку і не виходьте з браузера)</small>')
+@section('page_title', 'Тестування триває. <small>(Не перезавантажуйте сторінку і не виходьте з браузера)</small>')
 
 @section('page')
     <div class="container ui poll" id="poll" style="margin: 25px 0;">
@@ -7,9 +7,11 @@
 
         <div class="poll-block" v-bind:class="showPoll ? 'show' : 'hide'" >
 
-        {{--<div class="ui olive progress">--}}
-            {{--<div class="bar"></div>--}}
-        {{--</div>--}}
+        <div class="ui teal progress" id="poll-progress-bar" data-value="@{{ Math.round(count / 2) + 1 }}" data-total="@{{ last }}">
+            <div class="bar"></div>
+            <div class="label">Прогрес тестування</div>
+        </div>
+
         <input type="hidden" id="test-id" value="{{ $id }}">
         <input type="hidden" id="lesson-id" value="{{ $lessonId }}">
 
