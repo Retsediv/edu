@@ -24,7 +24,7 @@
                 <i class="home icon"></i> Головна
             </a>
             <a class="item {{ Html::is_active('courses') }}" href="{{ URL::route('courses') }}">
-                <i class="book icon"></i> Курси
+                <i class="university icon"></i> Курси
             </a>
             <a class="item {{ Html::is_active('tasks') }}" href="{{ URL::route('tasks') }}">
                 <i class="check circle icon"></i> Список справ
@@ -36,23 +36,22 @@
                 <i class="table icon"></i> Розклад уроків
             </a>
             <a class="item {{ Html::is_active('poll') }}" href="{{ URL::route('poll') }}">
-                <i class="book icon"></i> Тестування
+                <i class="columns icon"></i> Тестування
             </a>
             <a class="item {{ Html::is_active('blog') }}" href="{{ URL::route('blog') }}">
-                <i class="book icon"></i> Блог
+                <i class="newspaper icon"></i> Блог
             </a>
 
 
             {{-- If user is director --}}
             @if($user->roles()->first()->role_slug == "director")
-                <br />
-
+                <div class="item text-center">Налаштування:</div>
                 <a class="item {{ Html::is_active('/admin/users') }}" href="{{ URL::route('admin.users') }}">
-                    <i class="table icon"></i> Модерування учасників
+                    <i class="student icon"></i> Модерування учасників
                 </a>
 
                 <a class="item {{ Html::is_active('/admin/classes') }}" href="{{ URL::route('admin.classes') }}">
-                    <i class="table icon"></i> Модерування класами
+                    <i class="server icon"></i> Модерування класами
                 </a>
             @endif
 
