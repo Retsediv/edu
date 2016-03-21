@@ -34,7 +34,7 @@
 
         <div class="ui bottom attached green button" id="accept" tabindex="0" v-on:click="accept">Прийняти</div>
 
-        {{--<pre>@{{ $data | json }}</pre>--}}
+        <pre>@{{ $data | json }}</pre>
 
     </div>
 
