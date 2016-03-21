@@ -94,10 +94,11 @@ new Vue({
                     this.update();
 
                     this.progress = this.progress  + ( (1 / this.last)  * 100 );
+                    var num = $("#poll-progress-bar").attr("data-value");
                     $("#poll-progress-bar").progress({
                         percent: this.progress,
                         text: {
-                            active  : 'Питання №{value} із {total}',
+                            active  : 'Питання №'+ num +'із {total}',
                         }
                     });
 
