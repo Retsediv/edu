@@ -18,7 +18,7 @@
 
         <a href="{{ URL::route('blog.create') }}" style="color: #fff;" class="margin-bottom">
             <button class="ui button full-width-btn {{ getRandomColor() }}" style="margin-top: 10px;">
-                Добавити нову статтю
+                Додати нову статтю
             </button>
         </a>
 

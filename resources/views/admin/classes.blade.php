@@ -24,7 +24,7 @@
 
         <div class="ui sixteen wide column segment">
 
-            <h3 class="box-title">Добавити новий клас?</h3>
+            <h3 class="box-title">Додати новий клас?</h3>
 
             {!! Form::open(['class' => 'ui form', 'v-on:submit.prevent' => 'addClass']) !!}
 
@@ -41,7 +41,7 @@
             </div>
 
             <button type="submit" class="ui right plus icon button" style="margin-top: 10px;">
-                <i class="right arrow icon"></i>Добавити
+                <i class="right arrow icon"></i>Додати
             </button>
 
             {!! Form::close() !!}

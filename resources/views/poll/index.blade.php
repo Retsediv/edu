@@ -8,7 +8,7 @@
         @allowed('test.create')
             <a href="{{ URL::route('poll.create') }}" style="color: #fff;">
                 <button class="ui button {{ getRandomColor() }}" style="width: 100%; display: block; margin-bottom: 20px;">
-                    Добавити новий тест
+                    Додати новий тест
                 </button>
             </a>
         @endallowed

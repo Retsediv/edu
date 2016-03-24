@@ -1,13 +1,13 @@
 @extends('templates.page')
 
-@section('page_title', 'Добавте новий урок')
+@section('page_title', 'Додайте новий урок')
 
 @section('page')
     <div class="container ui">
 
         <div class="ui sixteen wide column segment container piled">
 
-            <h3 class="box-title">Добавити новий урок для курсу: {{ $course->title }}</h3>
+            <h3 class="box-title">Додати новий урок для курсу: {{ $course->title }}</h3>
 
             <!-- form start -->
             {!! Form::open(['method' => 'post', 'route' => ['lesson.create', $course->id], 'class' => 'ui form', 'files' => true]) !!}
@@ -45,7 +45,7 @@
             </div>
 
             <button type="submit" class="ui plus icon primary button" style="margin-top: 10px;">
-                <i class="plus icon"></i>Добавити
+                <i class="plus icon"></i>Додати
             </button>
 
             {!! Form::close() !!}

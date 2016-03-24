@@ -31,7 +31,7 @@
 
         @include('partitials.error')
 
-        <h3 class="box-title">Добавити нову подію</h3>
+        <h3 class="box-title">Додати нову подію</h3>
 
         <!-- /.box-header -->
         <!-- form start -->
@@ -61,7 +61,7 @@
         </div>
 
         <button type="submit" class="ui right plus icon button" style="margin-top: 10px;">
-            <i class="refresh icon"></i>Добавити
+            <i class="refresh icon"></i>Додати
         </button>
 
         {!! Form::close() !!}

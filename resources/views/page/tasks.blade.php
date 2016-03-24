@@ -66,7 +66,7 @@
 
 
             <button type="submit" class="ui right plus icon button" style="margin-top: 10px;">
-                <i class="right arrow icon"></i>Добавити
+                <i class="right arrow icon"></i>Додати
             </button>
 
             @if($errors->has())

@@ -30,7 +30,7 @@
 
     <button class="ui eight plus icon button" style="float: right;"><a href="{{ route('tasks') }}">
             <i class="right arrow icon"></i>
-            Добавити</a>
+            Додати</a>
     </button>
 
 

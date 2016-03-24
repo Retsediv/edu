@@ -1,6 +1,6 @@
 @extends('templates.page')
 
-@section('page_title', 'Добавити нову статтю')
+@section('page_title', 'Додати нову статтю')
 
 @section('page')
     <div class="container ui">
@@ -27,7 +27,7 @@
 
         </div>
 
-        <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Добавити/Оновити
+        <button type="submit" class="ui right plus icon button" style="margin-top: 10px;"><i class="refresh icon"></i>Додати/Оновити
         </button>
 
         {!! Form::close() !!}
