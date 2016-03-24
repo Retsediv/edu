@@ -16,7 +16,7 @@
         <div class="top-row">
             <div class="field-wrap">
                 <label>
-                    {{ trans('auth.name }}<span class="req">*</span>
+                    {{ trans('auth.name') }}<span class="req">*</span>
                 </label>
                 <input name="name" type="text" value="{{ old('name') }}" required="required" autofocus="autofocus" />
             </div>
