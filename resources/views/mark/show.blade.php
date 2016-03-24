@@ -30,7 +30,7 @@
                     <select name="user_id" id="user_id">
                         <option value="0"></option>
                         @foreach($members as $member)
-                            <option value="{{ $member->id }}">{{ $member->name}}</option>
+                            <option value="{{ $member->id }}">{{ $member->name }} {{ $member->last_name }}</option>
                         @endforeach
                     </select>
                 </div>
