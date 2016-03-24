@@ -98,7 +98,7 @@ new Vue({
                     $("#poll-progress-bar").progress({
                         percent: this.progress,
                         text: {
-                            active  : 'Питання №'+ num +'із {total}',
+                            active  : 'Питання № '+ num +' із {total}',
                         }
                     });
 
