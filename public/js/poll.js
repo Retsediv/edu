@@ -136,6 +136,7 @@ new Vue({
 
 
             this.currentQuestion = this.questions.shift();
+            // Shuffle answers
             this.currentAnswer = this.shuffle(this.answers[this.currentQuestion.id]);
 
         },
