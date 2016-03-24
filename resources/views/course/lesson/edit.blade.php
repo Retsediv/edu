@@ -1,6 +1,6 @@
 @extends('templates.page')
 
-@section('page_title', 'Добавте новий урок')
+@section('page_title', $lesson->title)
 
 @section('page')
     <div class="container ui">
@@ -10,7 +10,7 @@
             <h3 class="box-title">Редагувати урок для курсу: {{ $course->title }}</h3>
 
             <!-- form start -->
-            {!! Form::open(['method' => 'post', 'route' => ['lesson.edit', $course->id], 'class' => 'ui form']) !!}
+            {!! Form::open(['method' => 'post', 'route' => ['lesson.edit', $lesson->id], 'class' => 'ui form']) !!}
             <div class="ui grid twelve column aligned center">
 
                 <div class="field ui column wide fifteen" style="margin: 0;">
