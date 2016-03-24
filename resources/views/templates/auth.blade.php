@@ -16,11 +16,14 @@
             </div>
             <div class="form">
                 <ul class="tab-group non-margin">
-                    <li class="tab {{ Html::is_active('addschool') }}"><a style="width: 100%;" class="full-width" href="{{ route('addschool') }}">Додати новий навчальний заклад</a></li>
+                    <li class="tab {{ Html::is_active('addschool') }}"><a style="width: 100%;" class="full-width" href="{{ route('addschool') }}">
+                            {{ trans('auth.addSchoolBtn') }}
+                        </a>
+                    </li>
                 </ul>
                 <ul class="tab-group non-margin">
-                    <li class="tab {{ Html::is_active('auth/login') }}"><a href="{{ route('login') }}">Увійти</a></li>
-                    <li class="tab {{ Html::is_active('auth/register') }}"><a href=" {{ route('register') }}">Зареєструватись</a></li>
+                    <li class="tab {{ Html::is_active('auth/login') }}"><a href="{{ route('login') }}">{{ trans('auth.signIn') }}</a></li>
+                    <li class="tab {{ Html::is_active('auth/register') }}"><a href=" {{ route('register') }}">{{ trans('auth.signUp') }}</a></li>
                 </ul>
 
                 <div class="tab-content">

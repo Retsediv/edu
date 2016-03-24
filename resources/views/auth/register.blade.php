@@ -1,21 +1,21 @@
 @extends('templates.auth')
 @section('auth-block')
 <div id="signup">
-    <h1>Безкоштовна реєстрація</h1>
+    <h1>{{ trans('auth.freeReg') }}</h1>
 
     {!! Form::open(['route' => 'register', 'method' => 'post']) !!}
 
     <div class="top-row">
         <div class="field-wrap">
             <label>
-                Ім'я<span class="req">*</span>
+                {{ trans('auth.name') }}<span class="req">*</span>
             </label>
             <input name="name" type="text" value="{{ old('name') }}" required="required" autofocus="autofocus" />
         </div>
 
         <div class="field-wrap">
             <label>
-                Прізвище<span class="req">*</span>
+                {{ trans('auth.lastName') }}<span class="req">*</span>
             </label>
             <input name="last_name" type="text" value="{{ old('last_name') }}" required="required" />
         </div>
@@ -23,14 +23,14 @@
 
     <div class="field-wrap">
         <label>
-            Email<span class="req">*</span>
+            {{ trans('auth.email') }}<span class="req">*</span>
         </label>
         <input name="email" type="email" value="{{ old('email') }}" required="required" />
     </div>
 
     <div class="field-wrap">
         <span class="field-desc">
-            Хто ви?
+            {{ trans('auth.whoAreYou') }}
         </span>
         <select name="role" type="select" value="{{ old('role') }}" required="required">
             @foreach($roles as $role)
@@ -41,7 +41,7 @@
 
     <div class="field-wrap">
         <span class="field-desc">
-            З якої ви області?
+            {{ trans('auth.whatRegion') }}
         </span>
         <select name="region" id="region" type="select" value="{{ old('region') }}" required="required">
             <option disable value="">Оберіть свою область</option>
@@ -53,47 +53,47 @@
 
     <div class="field-wrap">
         <span class="field-desc">
-            Який район?
+            {{ trans('auth.whatArea') }}
         </span>
         <select name="area" id="area" type="select" value="{{ old('area') }}" required="required">        </select>
     </div>
 
     <div class="field-wrap">
         <span class="field-desc">
-            З якого ви міста/села?
+            {{ trans('auth.whatTown') }}
         </span>
         <select name="town" id="town" type="select" value="{{ old('town') }}" required="required"></select>
     </div>
 
     <div class="field-wrap">
         <span class="field-desc">
-            З якого ви навчального закладу?
+            {{ trans('auth.whatSchool') }}
         </span>
         <select name="school" id="school" type="select" value="{{ old('school') }}" required="required"></select>
     </div>
 
     <div class="field-wrap">
         <span class="field-desc">
-            В якому класі ви навчаєтеся?
+            {{ trans('auth.whatClass') }}
         </span>
         <select name="class" id="class" type="select" value="{{ old('class') }}"></select>
     </div>
 
     <div class="field-wrap">
         <label>
-            Пароль<span class="req">*</span>
+            {{ trans('auth.pass') }}<span class="req">*</span>
         </label>
         <input name="password" type="password" required="required" />
     </div>
 
     <div class="field-wrap">
         <label>
-            Повторіть пароль<span class="req">*</span>
+            {{ trans('auth.passRetry') }}<span class="req">*</span>
         </label>
         <input name="password_confirmation" type="password" required="required" />
     </div>
 
-    <button type="submit" class="button button-block"/>Розпочати</button>
+    <button type="submit" class="button button-block"/>{{ trans('auth.start') }}</button>
 
     {!! Form::close() !!}
 

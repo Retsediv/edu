@@ -1,33 +1,33 @@
 @extends('templates.auth')
 @section('auth-block')
 <div id="login">
-    <h1>Увійдіть у свій профіль</h1>
+    <h1>{{ trans('auth.signInHead') }}</h1>
 
     {!! Form::open(['route' => 'login', 'method' => 'post']) !!}
 
     <div class="field-wrap">
         <label>
-            Email<span class="req">*</span>
+            {{ trans('auth.email') }}<span class="req">*</span>
         </label>
         <input name="email" type="email" value="{{ old('email') }}" required="required" autofocus="autofocus" />
     </div>
 
     <div class="field-wrap">
         <label>
-            Пароль<span class="req">*</span>
+            {{ trans('auth.pass') }}<span class="req">*</span>
         </label>
         <input name="password" type="password" required="required" />
     </div>
 
     <div class="field-wrap field-check">
         <input type="checkbox" name="remember" id="remember">
-        <label for="remember">Запам'ятати мене?</label>
+        <label for="remember">{{ trans('auth.rememberMe') }}</label>
     </div>
 
 
-    <p class="forgot"><a href="{{ route('password') }}">Забули пароль?</a></p>
+    <p class="forgot"><a href="{{ route('password') }}">{{ trans('auth.forgetPass') }}</a></p>
 
-    <button class="button button-block"/>Увійти</button>
+    <button class="button button-block"/>{{ trans('auth.signIn') }}</button>
 
     {!! Form::close() !!}
 
