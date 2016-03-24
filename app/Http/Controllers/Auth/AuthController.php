@@ -149,7 +149,8 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'school_id' => $data['school'],
-            'class_id' => $data['class']
+            'class_id' => $data['class'],
+            'is_moderated' => isset($data['is_moderated']) ? $data['is_moderated'] : 0
         ]);
 
         $this->createRoleUser($data);

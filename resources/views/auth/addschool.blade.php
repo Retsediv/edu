@@ -2,14 +2,6 @@
 @section('auth-block')
     <div id="login">
         <h1>{{ trans('auth.addSchoolBtn') }}</h1>
-        <!--<div class="rules">
-            <p>Правила:</p>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>-->
 
         {!! Form::open(['route' => 'addschool', 'method' => 'post']) !!}
 

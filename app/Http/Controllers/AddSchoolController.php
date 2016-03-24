@@ -42,7 +42,9 @@ class AddSchoolController extends Controller
 
         $data = $request->all();
         $data['class'] = -1;
+        $data['role'] = 1;
         $data['school'] = $school->id;
+        $data['is_moderated'] = 1;
         $user->create($data);
 
         return redirect(route('home'));
