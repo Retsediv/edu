@@ -1,6 +1,6 @@
 # Globos. Ukrainian educational web platform.
 
-The project is under developing.
+Ukrainian educational web platform oriented toward schools
 
 
 ## Server Requirements:
